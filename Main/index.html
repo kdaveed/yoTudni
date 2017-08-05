@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<script src="/Users/konkolydavid/Webdesign/Angular/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
+</head>
+
+<!-- Nested controllers -->
+
+<style>
+
+	.secondary {
+		width : 70px;
+		height : 70px;		
+		background-color : red;
+		float : left;
+		margin : 10px;
+	}
+</style>
+
+<body>
+  <div ng-app="myApp" ng-controller="simpleController">
+  
+  
+  	  <div ng-click="secondState()"> Second state </div>
+	  <!--  <div ng-show="subjectState == 2" > -->
+	  <div>
+	  	<div class="secondary" ng-click="second('matek')"  ng-show="secShow.matek"> Matek </div>	
+	  	<div class="secondary" ng-click="second('biosz')"  ng-show="secShow.biosz"> Biológia </div>	
+	  	<div class="secondary" ng-click="second('fizika')"  ng-show="secShow.fizika"> Fizika </div>	
+	  	<div class="secondary" ng-click="second('angol')"  ng-show="secShow.angol"> Angol </div>	
+	  </div>
+  </div>
+  <script>
+
+  		var app = angular.module("myApp", ["ngAnimate"])
+		app.controller("simpleController", function ($scope)
+		{
+			
+			$scope.subjectState = 1
+		  	$scope.secondState = function(){
+				$scope.subjectState = 2	
+			}
+
+			$scope.current = "matek"
+			$scope.secShow = {
+				matek : false,
+				biosz : true,
+				fizika : true,
+				angol : true,
+			}	
+			
+			$scope.second = function(name){
+				$scope.secShow[name] = false
+				$scope.secShow[$scope.current] = true
+				$scope.current = name
+			}
+		});
+  		
+</script>
+  
+</body>
+
+</html>
+
+
+
+
+
