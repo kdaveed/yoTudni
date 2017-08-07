@@ -2,36 +2,52 @@
 <html lang="en-US">
 
 <head>
+
+	<link rel="stylesheet" href="../CSS/main.css" type="text/css">
 	<script src="/Users/konkolydavid/Webdesign/Angular/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
 </head>
 
-<!-- Nested controllers -->
-
-<style>
-
-	.secondary {
-		width : 70px;
-		height : 70px;		
-		background-color : red;
-		float : left;
-		margin : 10px;
-	}
-</style>
-
 <body>
+
+	<!-- Template -->
+ 
+
   <div ng-app="myApp" ng-controller="simpleController">
   
-  
-  	  <div ng-click="secondState()"> Second state </div>
-	  <!--  <div ng-show="subjectState == 2" > -->
-	  <div>
+   	<script type="text/ng-template" id="mosaik1.html">
+		<div>
+ 			{{subject.matek.color}}
+		</div>
+   	</script>
+   
+  	<div ng-click="secondState()"> Second state </div>
+	
+	
+	<!--  <div ng-show="subjectState == 2" > -->
+	  <!-- 
+	  <div id="mozaik">
+	  </div>
+	  <div id="subjectContent">
+	
+	  </div>
+	  <div id="secondarySelector">
 	  	<div class="secondary" ng-click="second('matek')"  ng-show="secShow.matek"> Matek </div>	
 	  	<div class="secondary" ng-click="second('biosz')"  ng-show="secShow.biosz"> Biológia </div>	
 	  	<div class="secondary" ng-click="second('fizika')"  ng-show="secShow.fizika"> Fizika </div>	
 	  	<div class="secondary" ng-click="second('angol')"  ng-show="secShow.angol"> Angol </div>	
 	  </div>
+	 
+	  -->
+	 
+	 <div>{{subjects.matek}}</div>
+	 <br>
+	
+	 <mosaik subject="subjects"></mosaik>
+		 
   </div>
+    <!-- heroDetail -->
+    
   <script>
 
   		var app = angular.module("myApp", ["ngAnimate"])
@@ -56,12 +72,45 @@
 				$scope.secShow[$scope.current] = true
 				$scope.current = name
 			}
+			
+			$scope.subjects = {
+
+	  			matek : {
+	  				imgName : "matek.png",
+	  				color : "#FC5E5E",
+	  			},
+	  		
+	  			biologia : {
+	  				imgName : "biologia.png",
+	  				color : "#83CB89",
+	  			},
+	  		
+	  			kemia : {
+	  				imgName : "kemia.png",
+	  				color : "#C4699E",
+	  			},
+	  			
+	  			fizika : {
+	  				imgName : "fizika.png",
+	  				color : "#00A8C5",
+	  			}		
+	  		}
 		});
   		
+  		
+  		app.directive("mosaik", function(){
+  	
+  			return {
+  				restrict : 'E',
+	  	  		scope : {
+	  	            subject : '=subject'
+	  	        },
+	  	        //template : "<div> {{subject.matek.color}} </div>",
+	  	        templateUrl : 'mosaik1.html'
+  			}
+  		})
 </script>
-  
 </body>
-
 </html>
 
 
