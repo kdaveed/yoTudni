@@ -12,42 +12,18 @@
 
 	<!-- Template -->
   <script type="text/ng-template" id="mosaik1.html">
-		<div>
-			{{$ctrl.subject.color}}
-		</div>
-		<div ng-click="$ctrl.click($ctrl.subject.color)"> Click </div>
+		<div class="secondary" style="background-color : {{$ctrl.subject.color}}" 
+			ng-click="$ctrl.click($ctrl.subject.color)">
+		
+			<img src="../img/{{$ctrl.subject.imgName}}" class = "secondaryImage"> 
+		</div>			
   </script>
   <div ng-controller="simpleController">
-  
-  <div ng-click="secondState()"> Second state </div>
-	
-	<!--  <div ng-show="subjectState == 2" > -->
-	  <!-- 
-	  <div id="mozaik">
-	  </div>
-	  <div id="subjectContent">
-	
-	  </div>
-	  <div id="secondarySelector">
-	  	<div class="secondary" ng-click="second('matek')"  ng-show="secShow.matek"> Matek </div>	
-	  	<div class="secondary" ng-click="second('biosz')"  ng-show="secShow.biosz"> Biológia </div>	
-	  	<div class="secondary" ng-click="second('fizika')"  ng-show="secShow.fizika"> Fizika </div>	
-	  	<div class="secondary" ng-click="second('angol')"  ng-show="secShow.angol"> Angol </div>	
-	  </div>
-	  -->
-	 
-	 <div>{{subjects.matek}}</div>
-	 <br>
-	
 	 <mosaik subject="subjects.matek"></mosaik>
 	 <mosaik subject="subjects.fizika"></mosaik>
 	 <mosaik subject="subjects.biologia"></mosaik>
 	 <mosaik subject="subjects.kemia"></mosaik>
-		
-		 
   </div>
-    <!-- heroDetail -->
-    
   <script>
 
   		var app = angular.module("myApp", ["ngAnimate"])
