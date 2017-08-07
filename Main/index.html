@@ -8,21 +8,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
 </head>
 
-<body>
+<body  ng-app="myApp">
 
 	<!-- Template -->
- 
-
-  <div ng-app="myApp" ng-controller="simpleController">
-  
-   	<script type="text/ng-template" id="mosaik1.html">
+  <script type="text/ng-template" id="mosaik1.html">
 		<div>
- 			{{subject.matek.color}}
+			{{$ctrl.subject.color}}
 		</div>
-   	</script>
-   
-  	<div ng-click="secondState()"> Second state </div>
-	
+		<div ng-click="$ctrl.click($ctrl.subject.color)"> Click </div>
+  </script>
+  <div ng-controller="simpleController">
+  
+  <div ng-click="secondState()"> Second state </div>
 	
 	<!--  <div ng-show="subjectState == 2" > -->
 	  <!-- 
@@ -37,13 +34,16 @@
 	  	<div class="secondary" ng-click="second('fizika')"  ng-show="secShow.fizika"> Fizika </div>	
 	  	<div class="secondary" ng-click="second('angol')"  ng-show="secShow.angol"> Angol </div>	
 	  </div>
-	 
 	  -->
 	 
 	 <div>{{subjects.matek}}</div>
 	 <br>
 	
-	 <mosaik subject="subjects"></mosaik>
+	 <mosaik subject="subjects.matek"></mosaik>
+	 <mosaik subject="subjects.fizika"></mosaik>
+	 <mosaik subject="subjects.biologia"></mosaik>
+	 <mosaik subject="subjects.kemia"></mosaik>
+		
 		 
   </div>
     <!-- heroDetail -->
@@ -73,41 +73,56 @@
 				$scope.current = name
 			}
 			
+			$scope.click = function(num){
+				alert(num)
+			}
+			
 			$scope.subjects = {
 
 	  			matek : {
 	  				imgName : "matek.png",
 	  				color : "#FC5E5E",
+	  				index : 1,
 	  			},
 	  		
 	  			biologia : {
 	  				imgName : "biologia.png",
 	  				color : "#83CB89",
+	  				index : 2,
 	  			},
 	  		
 	  			kemia : {
 	  				imgName : "kemia.png",
 	  				color : "#C4699E",
+	  				index : 3,
 	  			},
 	  			
 	  			fizika : {
 	  				imgName : "fizika.png",
 	  				color : "#00A8C5",
+	  				index : 4,
 	  			}		
 	  		}
 		});
   		
-  		
-  		app.directive("mosaik", function(){
-  	
-  			return {
-  				restrict : 'E',
-	  	  		scope : {
-	  	            subject : '=subject'
-	  	        },
-	  	        //template : "<div> {{subject.matek.color}} </div>",
-	  	        templateUrl : 'mosaik1.html'
+  		function MosaikController($scope, $element, $attrs){
+  			
+  			//var ctrl = this
+  			
+  			this.click = function(value){
+  				console.log(value)
+  				//$scope.click(value)
   			}
+  		}
+  		
+  		app.component("mosaik", {
+  			//restrict : 'E',
+  			controller : MosaikController,
+	  	  	bindings : {
+	  	          subject : '=subject',
+	  	          //click : "&"
+	  	    },
+	  	    templateUrl : 'mosaik1.html'
   		})
 </script>
 </body>
