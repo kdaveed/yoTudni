@@ -5,11 +5,18 @@
 	height : 100px;		
 	float : left;
 	margin : 10px;
+	transition:all 1s ease;
 }
 
+.expanded {
+	width :  300px;	
+	height : 300px;	
+}
 
 .secondaryImage {
-
 	width : 50px;
-	
+}
+
+.sample-show-hide {
+  transition: all linear 0.5s;
 }

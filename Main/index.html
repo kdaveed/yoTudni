@@ -13,7 +13,7 @@
 
 	<!-- Template -->
   <script type="text/ng-template" id="mosaik1.html">
-		<div class="secondary" style="background-color : {{$ctrl.subject.color}}" 
+		<div class="secondary" ng-class="{'expanded' : $ctrl.expand }" style="background-color : {{$ctrl.subject.color}}" 
 			ng-click="$ctrl.click($ctrl.subject.color)">
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "secondaryImage"> 
 			<subject-description ng-hide="$ctrl.hideContent" subject-name='$ctrl.subject.name'></subject-description>
@@ -21,7 +21,7 @@
   </script>
   
   <script type="text/ng-template" id="subjectDescription.html">
-		<div ng-switch="$ctrl.subjectName">
+		<div ng-switch="$ctrl.subjectName" class="sample-show-hide subjectContent">
 			<div ng-switch-when="matek"> <math-description></math-description></div>
 			<div ng-switch-default> <general-description></general-description></div>
 		</div> 	
@@ -82,9 +82,11 @@
   			
   			//var ctrl = this
   			this.hideContent = true
+  			this.expand = false
   			this.click = function(value){
   				this.hideContent = false
-				console.log(this.hideContent)
+				this.expand = true
+  				console.log(this.hideContent)
   			}
   		}
   		
