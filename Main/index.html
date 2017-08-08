@@ -4,6 +4,7 @@
 <head>
 
 	<link rel="stylesheet" href="../CSS/main.css" type="text/css">
+	<script src="../JS/subjectData.js"></script>
 	<script src="/Users/konkolydavid/Webdesign/Angular/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
 </head>
@@ -14,10 +15,26 @@
   <script type="text/ng-template" id="mosaik1.html">
 		<div class="secondary" style="background-color : {{$ctrl.subject.color}}" 
 			ng-click="$ctrl.click($ctrl.subject.color)">
-		
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "secondaryImage"> 
+			<subject-description ng-hide="$ctrl.hideContent" subject-name='$ctrl.subject.name'></subject-description>
 		</div>			
   </script>
+  
+  <script type="text/ng-template" id="subjectDescription.html">
+		<div ng-switch="$ctrl.subjectName">
+			<div ng-switch-when="matek"> <math-description></math-description></div>
+			<div ng-switch-default> <general-description></general-description></div>
+		</div> 	
+  </script>
+  
+  <script type="text/ng-template" id="mathDescription.html">
+		Math is great.
+  </script>
+  
+  <script type="text/ng-template" id="generalDescription.html">
+		Others are great as well.
+  </script>  
+  
   <div ng-controller="simpleController">
 	 <mosaik subject="subjects.matek"></mosaik>
 	 <mosaik subject="subjects.fizika"></mosaik>
@@ -53,41 +70,21 @@
 				alert(num)
 			}
 			
-			$scope.subjects = {
-
-	  			matek : {
-	  				imgName : "matek.png",
-	  				color : "#FC5E5E",
-	  				index : 1,
-	  			},
-	  		
-	  			biologia : {
-	  				imgName : "biologia.png",
-	  				color : "#83CB89",
-	  				index : 2,
-	  			},
-	  		
-	  			kemia : {
-	  				imgName : "kemia.png",
-	  				color : "#C4699E",
-	  				index : 3,
-	  			},
-	  			
-	  			fizika : {
-	  				imgName : "fizika.png",
-	  				color : "#00A8C5",
-	  				index : 4,
-	  			}		
-	  		}
+			$scope.hide = function(index){
+				
+			}
+			
+			$scope.subjects = subjectData 
+		
 		});
   		
   		function MosaikController($scope, $element, $attrs){
   			
   			//var ctrl = this
-  			
+  			this.hideContent = true
   			this.click = function(value){
-  				console.log(value)
-  				//$scope.click(value)
+  				this.hideContent = false
+				console.log(this.hideContent)
   			}
   		}
   		
@@ -95,11 +92,36 @@
   			//restrict : 'E',
   			controller : MosaikController,
 	  	  	bindings : {
-	  	          subject : '=subject',
+	  	          //subject : '=subject',
+	  	          subject : "<",
 	  	          //click : "&"
 	  	    },
 	  	    templateUrl : 'mosaik1.html'
   		})
+  		
+  		app.component("subjectDescription", {
+  			//controller : SubjectDescriptionController,
+  			bindings : {
+  				subjectName : "<",
+  			},
+  			templateUrl : "subjectDescription.html"
+  		})
+  		
+  		app.component("mathDescription", {
+  			bindings : {
+  				subjectName : "<",
+  			},
+  			templateUrl : "mathDescription.html"
+  		})
+  		
+  		app.component("generalDescription", {
+  			bindings : {
+  				subjectName : "<",
+  			},
+  			templateUrl : "generalDescription.html"
+  		})
+  		
+  		
 </script>
 </body>
 </html>
