@@ -3,128 +3,128 @@
 
 <head>
 
-	<link rel="stylesheet" href="../CSS/main.css" type="text/css">
-	<script src="../JS/subjectData.js"></script>
-	<script src="/Users/konkolydavid/Webdesign/Angular/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
+<link rel="stylesheet" href="../CSS/main.css" type="text/css">
+<script src="../JS/subjectData.js"></script>
+<script src="/Users/konkolydavid/Webdesign/Angular/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
 </head>
 
-<body  ng-app="myApp">
+<body ng-app="myApp">
 
 	<!-- Template -->
-  <script type="text/ng-template" id="mosaik1.html">
-		<div class="secondary" ng-class="{'expanded' : $ctrl.expand }" style="background-color : {{$ctrl.subject.color}}" 
-			ng-click="$ctrl.click($ctrl.subject.color)">
+	<script type="text/ng-template" id="mosaik.html">
+		<div class="secondary" ng-hide="!$ctrl.subject.shown" ng-class="{'expanded' : $ctrl.expand }" style="background-color : {{$ctrl.subject.color}}" 
+			ng-click="$ctrl.click($ctrl.subject)">
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "secondaryImage"> 
 			<subject-description ng-hide="$ctrl.hideContent" subject-name='$ctrl.subject.name'></subject-description>
 		</div>			
   </script>
-  
-  <script type="text/ng-template" id="subjectDescription.html">
+
+	<script type="text/ng-template" id="mosaikList.html">
+		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index)"></mosaik>	
+	</script>
+	
+	<!-- 	
+		<hero-detail ng-repeat="hero in $ctrl.list"></hero-detail>
+	
+		hero="hero" on-delete="$ctrl.deleteHero(hero)" on-update="$ctrl.updateHero(hero, prop, value)">
+		
+		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide="$ctrl.hideOnes(index)"></mosaik> -->
+	
+	<script type="text/ng-template" id="subjectDescription.html">
 		<div ng-switch="$ctrl.subjectName" class="sample-show-hide subjectContent">
 			<div ng-switch-when="matek"> <math-description></math-description></div>
 			<div ng-switch-default> <general-description></general-description></div>
 		</div> 	
   </script>
-  
-  <script type="text/ng-template" id="mathDescription.html">
+
+	<script type="text/ng-template" id="mathDescription.html">
 		Math is great.
   </script>
-  
-  <script type="text/ng-template" id="generalDescription.html">
+
+	<script type="text/ng-template" id="generalDescription.html">
 		Others are great as well.
-  </script>  
-  
-  <div ng-controller="simpleController">
-	 <mosaik subject="subjects.matek"></mosaik>
-	 <mosaik subject="subjects.fizika"></mosaik>
-	 <mosaik subject="subjects.biologia"></mosaik>
-	 <mosaik subject="subjects.kemia"></mosaik>
-  </div>
-  <script>
+  </script>
 
-  		var app = angular.module("myApp", ["ngAnimate"])
-		app.controller("simpleController", function ($scope)
-		{
-			
+	<div ng-controller="simpleController">
+		<mosaik-list subjects="subjectList"></mosaik-list>
+	</div>
+	<script>
+		var app = angular.module("myApp", [ "ngAnimate" ])
+		app.controller("simpleController", function($scope) {
+
 			$scope.subjectState = 1
-		  	$scope.secondState = function(){
-				$scope.subjectState = 2	
+			$scope.secondState = function() {
+				$scope.subjectState = 2
 			}
-
 			$scope.current = "matek"
-			$scope.secShow = {
-				matek : false,
-				biosz : true,
-				fizika : true,
-				angol : true,
-			}	
-			
-			$scope.second = function(name){
-				$scope.secShow[name] = false
-				$scope.secShow[$scope.current] = true
-				$scope.current = name
-			}
-			
-			$scope.click = function(num){
-				alert(num)
-			}
-			
-			$scope.hide = function(index){
-				
-			}
-			
-			$scope.subjects = subjectData 
-		
+			$scope.subjects = subjectData
+			$scope.subjectList = subjectList
 		});
-  		
-  		function MosaikController($scope, $element, $attrs){
-  			
-  			//var ctrl = this
-  			this.hideContent = true
-  			this.expand = false
-  			this.click = function(value){
-  				this.hideContent = false
+
+		var MosaikListController = function($scope, $element, $attrs){
+			
+			this.hideOnes = function(index){
+				console.log(index)
+			}
+		}
+
+		app.component("mosaikList", {
+			
+			controller : MosaikListController,
+			templateUrl : "mosaikList.html",
+			bindings : {
+				subjects : "<"
+			}
+		})
+
+		function MosaikController($scope, $element, $attrs) {
+
+			//var ctrl = this
+			this.hideContent = true
+			this.expand = false
+			this.click = function(value) {
+				this.hideContent = false
 				this.expand = true
-  				console.log(this.hideContent)
-  			}
-  		}
-  		
-  		app.component("mosaik", {
-  			//restrict : 'E',
-  			controller : MosaikController,
-	  	  	bindings : {
-	  	          //subject : '=subject',
-	  	          subject : "<",
-	  	          //click : "&"
-	  	    },
-	  	    templateUrl : 'mosaik1.html'
-  		})
-  		
-  		app.component("subjectDescription", {
-  			//controller : SubjectDescriptionController,
-  			bindings : {
-  				subjectName : "<",
-  			},
-  			templateUrl : "subjectDescription.html"
-  		})
-  		
-  		app.component("mathDescription", {
-  			bindings : {
-  				subjectName : "<",
-  			},
-  			templateUrl : "mathDescription.html"
-  		})
-  		
-  		app.component("generalDescription", {
-  			bindings : {
-  				subjectName : "<",
-  			},
-  			templateUrl : "generalDescription.html"
-  		})
-  		
-  		
-</script>
+				console.log(this.subject)
+				console.log(this)
+				this.hideElements({ index : this.subject.index })
+			}
+		}
+		
+		app.component("mosaik", {
+			//restrict : 'E',
+			controller : MosaikController,
+			bindings : {
+				subject : "<",
+				hideElements : "&"
+			},
+			templateUrl : 'mosaik.html'
+		})
+
+		app.component("subjectDescription", {
+			//controller : SubjectDescriptionController,
+			bindings : {
+				subjectName : "<",
+			},
+			templateUrl : "subjectDescription.html"
+		})
+
+		app.component("mathDescription", {
+			bindings : {
+				subjectName : "<",
+			},
+			templateUrl : "mathDescription.html"
+		})
+
+		app.component("generalDescription", {
+			bindings : {
+				subjectName : "<",
+			},
+			templateUrl : "generalDescription.html"
+		})
+	</script>
 </body>
 </html>
 
