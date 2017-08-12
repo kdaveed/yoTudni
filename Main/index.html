@@ -16,7 +16,7 @@
 
 	<!-- Template -->
 	<script type="text/ng-template" id="mosaik.html">
-		<div class="secondary" ng-hide="!$ctrl.subject.shown" ng-class="{'expanded' : $ctrl.expand }" style="background-color : {{$ctrl.subject.color}}" 
+		<div class="secondary sample-show-hide" ng-hide="!$ctrl.subject.shown" ng-class="{'expanded' : $ctrl.expand }" style="background-color : {{$ctrl.subject.color}}" 
 			ng-click="$ctrl.click($ctrl.subject)">
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "secondaryImage"> 
 			<subject-description ng-hide="$ctrl.hideContent" subject-name='$ctrl.subject.name'></subject-description>
@@ -93,7 +93,7 @@
 			this.expand = false
 			this.click = function(value) {
 				this.hideContent = false
-				this.expand = true
+				//this.expand = true
 				this.hideElements({
 					index : this.subject.index, subcomponent : this
 				})
