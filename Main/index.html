@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="../CSS/main.css" type="text/css">
 <script src="../JS/subjectData.js"></script>
+<script src="../JS/mosaikDescriptor.js"></script>
 <script src="/Library/WebDesign/jquery.js"></script>
 <script src="/Users/konkolydavid/Webdesign/Angular/angular.min.js"></script>
 <script
@@ -16,7 +17,10 @@
 
 	<!-- Template -->
 	<script type="text/ng-template" id="mosaik.html">
-		<div class="secondary sample-show-hide" ng-hide="!$ctrl.subject.shown" ng-class="{'expanded' : $ctrl.expand }" style="background-color : {{$ctrl.subject.color}}" 
+		<div class="secondary sample-show-hide" ng-hide="!$ctrl.subject.shown" ng-class="{'expanded' : $ctrl.expand }" 
+			style="	background-color : {{$ctrl.subject.color}};
+					left : {{$ctrl.subject.coords.left}}px;
+					top : {{$ctrl.subject.coords.top}}px;"
 			ng-click="$ctrl.click($ctrl.subject)">
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "secondaryImage"> 
 			<subject-description ng-hide="$ctrl.hideContent" subject-name='$ctrl.subject.name'></subject-description>
@@ -24,13 +28,8 @@
   </script>
 
 	<script type="text/ng-template" id="mosaikList.html">
-		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index, subcomponent)"></mosaik> 
+		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index)"></mosaik> 
 	</script>
-
-	<!-- 
-		<hero-detail ng-repeat="hero in $ctrl.list"></hero-detail>
-		hero="hero" on-delete="$ctrl.deleteHero(hero)" on-update="$ctrl.updateHero(hero, prop, value)">
-		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide="$ctrl.hideOnes(index)"></mosaik> -->
 
 	<script type="text/ng-template" id="subjectDescription.html">
 		<div ng-switch="$ctrl.subjectName" class="sample-show-hide subjectContent">
@@ -47,7 +46,7 @@
 		Others are great as well.
   </script>
 
-	<div ng-controller="simpleController">
+	<div ng-controller="simpleController" class="mosaikContainer">
 		<mosaik-list subjects="subjectList"></mosaik-list>
 	</div>
 	<script>
@@ -60,19 +59,20 @@
 			}
 			$scope.current = "matek"
 			$scope.subjects = subjectData
-			$scope.subjectList = subjectList
+			$scope.subjectList = calculateCoords(subjectList, Mosaik.config)
+			console.log("SubjectList")
+			console.log($scope.subjectList)
 		});
 
 		var MosaikListController = function($scope, $element, $attrs) {
 
-			this.hideOnes = function(index, subcomponent) {
+			this.hideOnes = function(index) {
 
 				util.setValues(this.subjects, "shown", false, {
 					inverse : true,
 					key : "index",
 					value : index
 				})
-				subcomponent.expand = true
 				console.log(this.subjects)
 			}
 		}
@@ -93,13 +93,15 @@
 			this.expand = false
 			this.click = function(value) {
 				this.hideContent = false
-				//this.expand = true
+				this.expand = true
+				this.subject.coords.left = 10;
+				this.subject.coords.top = 10;
 				this.hideElements({
-					index : this.subject.index, subcomponent : this
+					index : this.subject.index
 				})
 			}
 		}
-
+		
 		app.component("mosaik", {
 			//restrict : 'E',
 			controller : MosaikController,
