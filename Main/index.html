@@ -29,6 +29,15 @@
 
 	<script type="text/ng-template" id="mosaikList.html">
 		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index)"></mosaik> 
+		<div ng-click="$ctrl.myAlert()"> Click </div>
+	</script>
+
+	<script type="text/ng-template" id="secondarySelector.html">
+		<div class="secSelContainer">
+			<sec-sel-element ng-repeat="subject in $ctrl.subjects" ></sec-sel-element>
+		</div>
+		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index)"></mosaik> 
+		<div ng-click="$ctrl.myAlert()"> Click </div>
 	</script>
 
 	<script type="text/ng-template" id="subjectDescription.html">
@@ -47,97 +56,9 @@
   </script>
 
 	<div ng-controller="simpleController" class="mosaikContainer">
-		<mosaik-list subjects="subjectList"></mosaik-list>
+		<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
+		<secondary-selector subjects="subjectList"></secondary-selector>
 	</div>
-	<script>
-		var app = angular.module("myApp", [ "ngAnimate" ])
-		app.controller("simpleController", function($scope) {
-
-			$scope.subjectState = 1
-			$scope.secondState = function() {
-				$scope.subjectState = 2
-			}
-			$scope.current = "matek"
-			$scope.subjects = subjectData
-			$scope.subjectList = calculateCoords(subjectList, Mosaik.config)
-			console.log("SubjectList")
-			console.log($scope.subjectList)
-		});
-
-		var MosaikListController = function($scope, $element, $attrs) {
-
-			this.hideOnes = function(index) {
-
-				util.setValues(this.subjects, "shown", false, {
-					inverse : true,
-					key : "index",
-					value : index
-				})
-				console.log(this.subjects)
-			}
-		}
-
-		app.component("mosaikList", {
-
-			controller : MosaikListController,
-			templateUrl : "mosaikList.html",
-			bindings : {
-				subjects : "<"
-			}
-		})
-
-		function MosaikController($scope, $element, $attrs) {
-
-			//var ctrl = this
-			this.hideContent = true
-			this.expand = false
-			this.click = function(value) {
-				this.hideContent = false
-				this.expand = true
-				this.subject.coords.left = 10;
-				this.subject.coords.top = 10;
-				this.hideElements({
-					index : this.subject.index
-				})
-			}
-		}
-		
-		app.component("mosaik", {
-			//restrict : 'E',
-			controller : MosaikController,
-			bindings : {
-				subject : "<",
-				hideElements : "&"
-			},
-			templateUrl : 'mosaik.html'
-		})
-
-		app.component("subjectDescription", {
-			//controller : SubjectDescriptionController,
-			bindings : {
-				subjectName : "<",
-			},
-			templateUrl : "subjectDescription.html"
-		})
-
-		app.component("mathDescription", {
-			bindings : {
-				subjectName : "<",
-			},
-			templateUrl : "mathDescription.html"
-		})
-
-		app.component("generalDescription", {
-			bindings : {
-				subjectName : "<",
-			},
-			templateUrl : "generalDescription.html"
-		})
-	</script>
+	<script src="../JS/main.js"></script>
 </body>
 </html>
-
-
-
-
-
