@@ -26,7 +26,7 @@
 
 	<!-- Template -->
 	<script type="text/ng-template" id="mosaik.html">
-		<div class="secondary sample-show-hide05" ng-hide="!$ctrl.subject.shown" 
+		<div class="secondary sample-show-hide" ng-hide="!$ctrl.subject.shown" 
 			style="	background-color : {{$ctrl.subject.color}};
 					left : {{$ctrl.subject.coords.left}}px;
 					top : {{$ctrl.subject.coords.top}}px;"
@@ -37,7 +37,7 @@
 
 	<script type="text/ng-template" id="subjectDescription.html">
 		<div class="expanded"> {{$ctr.showContent}} </div>
-		<div class="subjectDescription show-hide1" ng-hide="!$ctrl.showContent">
+		<div class="subjectDescription show-hide" ng-hide="!$ctrl.showContent">
 			<div ng-switch="$ctrl.subjectName">
 				<div ng-switch-when="matek"> <math-description></math-description></div>
 				<div ng-switch-default> <general-description></general-description></div>

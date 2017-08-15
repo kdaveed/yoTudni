@@ -3,6 +3,7 @@
 	width: 100px;
 	height: 100px;
 	border-radius: 5px;
+	
 }
 
 .expanded {
@@ -12,29 +13,34 @@
 
 .subjectDescription {
 	position: absolute;
-	top: 530px;
-	left: 530px;
+	top: 30px;
+	left: 30px;
 	width: 270px;
 	height: 270px;
 	background-color: yellow;
-	transition: all linear 1s;
 }
 
 .secondaryImage {
 	width: 50px;
 }
 
-.show-hide05 {
-	transition: all linear 0.5s;
+.sample-show-hide {
+  transition: all linear 0.5s;
 }
 
-.show-hide1 {
-	transition: all linear 1s;
+.show-hide {
+	transition: all linear 2s;
+	
 }
 
 .sample-show-hide.ng-hide {
 	opacity: 0;
 }
+
+.show-hide.ng-hide {
+	opacity: 0;
+}
+
 
 .mosaikContainer {
 	width: 290px;
