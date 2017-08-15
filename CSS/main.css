@@ -1,26 +1,59 @@
-	
-	
 .secondary {
-	width : 100px;
-	height : 100px;		
-	float : left;
-	margin : 10px;
-	transition:all 1s ease;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 5px;
 }
 
 .expanded {
-	width :  300px;	
-	height : 300px;	
+	width: 300px;
+	height: 300px;
+}
+
+.subjectDescription {
+	position: absolute;
+	top: 530px;
+	left: 530px;
+	width: 270px;
+	height: 270px;
+	background-color: yellow;
+	transition: all linear 1s;
 }
 
 .secondaryImage {
-	width : 50px;
+	width: 50px;
 }
 
-.sample-show-hide {
-  transition: all linear 0.5s;
+.show-hide05 {
+	transition: all linear 0.5s;
+}
+
+.show-hide1 {
+	transition: all linear 1s;
 }
 
 .sample-show-hide.ng-hide {
-  opacity: 0;
+	opacity: 0;
+}
+
+.mosaikContainer {
+	width: 290px;
+	height: 300px;
+	border: 2px solid black;
+}
+
+.secSelector {
+	position: absolute;
+	top: 400px;
+	left: 400px;
+}
+
+.secSelContainer {
+	
+}
+
+.secSelElement {
+	float: left;
+	width: 100px;
+	height: 40px;
 }

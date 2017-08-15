@@ -7,12 +7,17 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		}
 		
 		$scope.select = function(index) {
-			alert(index)
+			console.log("selected index : " + index)
 		}
+		//Initialize 
 		
+		$scope.showDsc = false;
+		$scope.subjectName = "matek";
+		
+		$scope.color = "#FC5E5E"
 		$scope.secSelector = false;
-		
 		$scope.current = "matek"
+		
 		$scope.subjects = subjectData
 		$scope.subjectList = calculateCoords(subjectList, Mosaik.config)
 		console.log("SubjectList")
@@ -21,15 +26,18 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 
 	var MosaikListController = function($scope, $element, $attrs) {
 
+		this.showContent = false;
+		this.subjectName = "matek";
+
 		this.hideOnes = function(index) {
 
 			util.setValues(this.subjects, "shown", false, {
 				inverse : true,
 				key : "index",
-				value : index
+				value : 0
 			})
-			$scope.secSelector = false;
-			console.log(this.subjects)
+			this.showContent = true
+ 			//$scope.secSelector = false;
 			this.select({index : index})
 		}
 	}
@@ -47,7 +55,6 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 	function MosaikController($scope, $element, $attrs) {
 
 		//var ctrl = this
-		this.hideContent = true
 		this.expand = false
 		this.click = function(value) {
 			this.hideContent = false
@@ -88,6 +95,8 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		//controller : SubjectDescriptionController,
 		bindings : {
 			subjectName : "<",
+			showContent : "<",
+
 		},
 		templateUrl : "subjectDescription.html"
 	})
