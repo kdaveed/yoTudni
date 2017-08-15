@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" href="../CSS/main.css" type="text/css">
 <link rel="stylesheet" href="../CSS/text.css" type="text/css">
+<link rel="stylesheet" href="../CSS/img.css" type="text/css">
+
 <script src="../JS/subjectData.js"></script>
 <script src="../JS/mosaikDescriptor.js"></script>
 <script src="/Library/WebDesign/jquery.js"></script>
@@ -16,25 +18,40 @@
 
 <body ng-app="myApp">
 
-
 	<script type="text/ng-template" id="mosaikList.html">
 		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index)"></mosaik> 
 		<subject-description
 			show-content="$ctrl.showContent"
 			subject-name='$ctrl.subjectName'></subject-description>
+			<selector ng-show="$ctrl.showSecondary"
+				ng-repeat="subject in $ctrl.subjects" 
+				subject="subject" 
+				show-subject="$ctrl.showSubject(subject)"></selector>		
+		</div>	
 	</script>
+
 
 	<!-- Template -->
 	<script type="text/ng-template" id="mosaik.html">
-		<div class="secondary sample-show-hide" ng-hide="!$ctrl.subject.shown" 
+		<div class="mosaik sample-show-hide" ng-show="$ctrl.subject.shown" 
 			style="	background-color : {{$ctrl.subject.color}};
 					left : {{$ctrl.subject.coords.left}}px;
 					top : {{$ctrl.subject.coords.top}}px;"
 			ng-click="$ctrl.click($ctrl.subject)">
-			<img src="../img/{{$ctrl.subject.imgName}}" class = "secondaryImage"> 
+			<img src="../img/{{$ctrl.subject.imgName}}" class = "middleImg secondaryImage"> 
 		</div>			
   </script>
 
+	<script type="text/ng-template" id="selector.html">
+		<div class="selector sample-show-hide" ng-show="!$ctrl.subject.shown" 
+			style="	background-color : {{$ctrl.subject.color}};
+					left : {{$ctrl.subject.coords.left}}px;
+					top : {{$ctrl.subject.coords.top}}px;"
+			ng-click="$ctrl.click($ctrl.subject)">
+			<img src="../img/{{$ctrl.subject.imgName}}" class = "middleImg secondaryImage"> 
+		</div>	
+	</script>
+	
 	<script type="text/ng-template" id="subjectDescription.html">
 		<div class="expanded"> {{$ctr.showContent}} </div>
 		<div class="subjectDescription show-hide" ng-hide="!$ctrl.showContent">
@@ -44,14 +61,6 @@
 			</div> 	
 		</div>
   </script>
-
-	<script type="text/ng-template" id="secondarySelector.html">
-		<div class="secSelContainer">
-			<sec-sel-element ng-repeat="subject in $ctrl.subjects" ></sec-sel-element>
-		</div>
-		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index)"></mosaik> 
-		<div ng-click="$ctrl.myAlert()"> Click </div>
-	</script>
 
 
 
@@ -68,12 +77,10 @@
 		</div>  
   </script>
 
-	<div ng-controller="simpleController" class="mosaikContainer">
+	<div ng-controller="simpleController">
 		<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
-		<!-- 
-		<secondary-selector subjects="subjectList"></secondary-selector>
-		-->
 	</div>
+
 	<script src="../JS/main.js"></script>
 </body>
 </html>
