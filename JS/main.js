@@ -26,21 +26,24 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 
 	var MosaikListController = function($scope, $element, $attrs) {
 
-		this.showContent = false;
-		this.showSecondary = false;
+		this.mosaik = true
+		this.currentSubject = {
+				name : "matek"
+		}
+		
+		
+		this.hideOnes = function(subject) {
 
-		this.subjectName = "matek";
-		this.hideOnes = function(index) {
-
+			this.mosaik = false
+			this.currentSubject = subject
+			console.log("Subject")
+			console.log(this.currentSubject)
 			util.setValues(this.subjects, "shown", false, {
 				inverse : true,
 				key : "index",
-				value : index
+				value : subject.index
 			})
-			this.showContent = true
-			this.showSecondary = true
-			//$scope.secSelector = false;
-			this.select({index : index})
+			this.select({subject : subject})
 		}
 	}
 
@@ -56,15 +59,16 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 
 	function MosaikController($scope, $element, $attrs) {
 
-		//var ctrl = this
-		this.expand = false
 		this.click = function(value) {
-			this.hideContent = false
-			this.expand = true
-			this.subject.coords.left = 30;
-			this.subject.coords.top = 30;
+			
+			this.mosaik = false
+			this.content = true
+			//Old solution
+			//this.subject.coords.left = 30;
+			//this.subject.coords.top = 30;
+			console.log("Subject")
 			this.hideElements({
-				index : this.subject.index
+				subject : this.subject
 			})
 		}
 	}
@@ -74,6 +78,7 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		controller : MosaikController,
 		bindings : {
 			subject : "<",
+			mosaik : "<",
 			hideElements : "&"
 		},
 		templateUrl : 'mosaik.html'
@@ -100,8 +105,8 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 	app.component("subjectDescription", {
 		//controller : SubjectDescriptionController,
 		bindings : {
-			subjectName : "<",
-			showSubject : "&",
+			showContent : "<",
+			currentSubject : "<",
 		},
 		templateUrl : "subjectDescription.html"
 	})

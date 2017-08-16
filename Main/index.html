@@ -19,50 +19,58 @@
 <body ng-app="myApp">
 
 	<script type="text/ng-template" id="mosaikList.html">
-		<mosaik ng-repeat="subject in $ctrl.subjects" subject="subject" hide-elements="$ctrl.hideOnes(index)"></mosaik> 
-		<subject-description
-			show-content="$ctrl.showContent"
-			subject-name='$ctrl.subjectName'></subject-description>
-			<selector ng-show="$ctrl.showSecondary"
-				ng-repeat="subject in $ctrl.subjects" 
+	<div class="container">
+		<div class="mosaikContainer">
+			<mosaik ng-repeat="subject in $ctrl.subjects" 
+				mosaik="$ctrl.mosaik" 
 				subject="subject" 
-				show-subject="$ctrl.showSubject(subject)"></selector>		
+				hide-elements="$ctrl.hideOnes(subject)">
+			</mosaik>
+			<subject-description
+				show-content="!$ctrl.mosaik"
+				current-subject="$ctrl.currentSubject">
+			</subject-description>
+		</div> 
+		<div class="selectorContainer">
+				<selector ng-show="!$ctrl.mosaik"
+					ng-repeat="subject in $ctrl.subjects" 
+					subject="subject"
+					show-subject="$ctrl.showSubject(subject)">
+				</selector>	
+				<span class="stretch"></span>
 		</div>	
+	</div>
 	</script>
-
 
 	<!-- Template -->
 	<script type="text/ng-template" id="mosaik.html">
-		<div class="mosaik sample-show-hide" ng-show="$ctrl.subject.shown" 
+		<div class="mosaik sample-show-hide" ng-show="$ctrl.mosaik" 
 			style="	background-color : {{$ctrl.subject.color}};
 					left : {{$ctrl.subject.coords.left}}px;
 					top : {{$ctrl.subject.coords.top}}px;"
 			ng-click="$ctrl.click($ctrl.subject)">
-			<img src="../img/{{$ctrl.subject.imgName}}" class = "middleImg secondaryImage"> 
+			<img src="../img/{{$ctrl.subject.imgName}}" class="middleImg secondaryImage"> 
 		</div>			
   </script>
 
 	<script type="text/ng-template" id="selector.html">
-		<div class="selector sample-show-hide" ng-show="!$ctrl.subject.shown" 
-			style="	background-color : {{$ctrl.subject.color}};
-					left : {{$ctrl.subject.coords.left}}px;
-					top : {{$ctrl.subject.coords.top}}px;"
+		<div class="sample-show-hide" ng-show="!$ctrl.subject.shown" 
+			style="	background-color : {{$ctrl.subject.color}};"
 			ng-click="$ctrl.click($ctrl.subject)">
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "middleImg secondaryImage"> 
 		</div>	
 	</script>
-	
+
 	<script type="text/ng-template" id="subjectDescription.html">
-		<div class="expanded"> {{$ctr.showContent}} </div>
-		<div class="subjectDescription show-hide" ng-hide="!$ctrl.showContent">
-			<div ng-switch="$ctrl.subjectName">
+		<div class="subjectDescription 
+			show-hide" ng-hide="!$ctrl.showContent"
+			style="background-color : red; ">
+			<div ng-switch="$ctrl.currentSubject.name">
 				<div ng-switch-when="matek"> <math-description></math-description></div>
 				<div ng-switch-default> <general-description></general-description></div>
 			</div> 	
 		</div>
   </script>
-
-
 
 	<script type="text/ng-template" id="mathDescription.html">
 		<div class="justify pad10">
@@ -80,7 +88,9 @@
 	<div ng-controller="simpleController">
 		<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
 	</div>
-
+		
+		
+		
 	<script src="../JS/main.js"></script>
 </body>
 </html>

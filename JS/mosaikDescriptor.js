@@ -5,7 +5,7 @@ var Mosaik = {
 		rows : 2,
 		cols : 2,
 		dist : 30,
-		width : 100,
+		width : 200,
 		height : 100,
 	}
 }

@@ -8,3 +8,7 @@
 .pad10 {
 	padding : 10px;
 }
+
+.clear{
+	clear : both;
+}
