@@ -1,0 +1,40 @@
+
+
+.teachTitle {
+	font-style : underline;
+	font-weight: bold;
+	font-size : 20px;	
+}
+
+.teacherCont {
+	display : flex;
+	justify-content : space-evenly;
+	//width : 400px;
+}
+
+.teachImage {
+	width : 200px;
+	border : 5px solid #CACFD2;
+	border-radius : 5px;
+}
+
+.teacherCont > div{
+	margin : 10px;	
+}
+
+.teacherImgCont {
+	width : 300px;
+	flex : 1;
+}
+
+.teacherImg > img{
+	//max-width 
+}
+
+.teacherDsc{
+	flex : 1;
+	//width : 500px;
+	border : 3px solid #DBCDCD;
+	background-color : #EDE1E1;
+	paddig : 20px;
+}

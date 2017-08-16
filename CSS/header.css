@@ -1,0 +1,22 @@
+
+.yoTudniHeader {
+	background-color : #E8EAE9;
+	height : 100px;
+	display : flex;
+}
+
+
+.titles {
+	margin-top : 18px;
+}
+
+.titles > div {
+	float : left;
+	margin : 20px;
+	font-style : italic;
+	font-size : 20px;
+}
+
+a:link {
+    text-decoration: none;
+}

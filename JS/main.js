@@ -52,10 +52,8 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		this.showSubject = function(subject){
 			
 			this.currentSubject.shown = false
-			subject.shown = true;
 			this.currentSubject = subject
-			console.log("MosaikController")
-			console.log(subject)
+			this.currentSubject.shown = true
 		}
 	}
 
@@ -131,6 +129,13 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		},
 		templateUrl : "mathDescription.html"
 	})
+	
+	app.component("biologyDescription", {
+		bindings : {
+			subjectName : "<",
+		},
+		templateUrl : "biologyDescription.html"
+	})
 
 	app.component("generalDescription", {
 		bindings : {
@@ -138,3 +143,10 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		},
 		templateUrl : "generalDescription.html"
 	})
+
+	app.filter('scrurl', function($sce) {
+    return function(text) {
+        text = text.replace("watch?v=", "embed/");
+        return $sce.trustAsResourceUrl(text);
+    	}
+	});

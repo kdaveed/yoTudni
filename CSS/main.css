@@ -14,10 +14,6 @@
 	//text-align : justify;
 }
 
-.middle {
-	margin : 0 auto;
-	width : 580px;
-}
 
 .expanded {
 	width: 300px;
@@ -27,7 +23,6 @@
 .subjectDescription {
 	padding : 20px;
 	margin : 30px; 
-	background-color: yellow;
 	border-radius : 4px;
 }
 
@@ -112,3 +107,18 @@
 .selectedSubject{
 	border : 3px solid black;
 }
+
+.page {
+	padding : 40px 0;
+	width : 100%;
+	height : 500px;
+}
+
+.bckgrnd1 {
+	background-color : #DEDEDE;
+}
+
+.logoImg {
+	height : 80px;
+}
+

@@ -1,0 +1,84 @@
+
+.floatLeft {
+	float : left;
+}
+
+.middle {
+	margin : 0 auto;
+	width : 580px;
+}
+
+.mid {
+	margin : 0 auto;
+	display : table;
+}
+
+.cent {
+	display : table;
+	margin : 0 auto;
+}
+
+.bckgrn2 {
+	background-color : #F5CBA7;
+}
+
+.just {
+	text-align: justify;
+}
+
+.100p {
+	width : 100%;
+	text-justify: inter-word;
+}
+
+.height20 {
+	height : 20px;
+}
+
+.lines {
+	width : 96%;
+	height : 2px;
+	border-top : 1px solid black;
+	border-bottom : 1px solid black;
+	margin : 30px auto;
+}
+
+.mar20 {
+	margin-top : 20px;
+}
+
+.flexClass {
+	display : flex;	
+}
+
+
+.flexItem {
+	flex : 1;
+}
+
+.red {
+	background-color : #FC5E5E;	
+}
+
+.yel {
+	padding : 40px 0;
+	background-color : #FEC728;
+}
+
+.green {
+	background-color : #83CB89;
+}
+
+.purple {
+	background-color : #C4699E;
+}
+
+.blue {
+	background-color : #00A8C5;
+}
+
+.grey {
+	background-color : #EDE9E9;
+}
+
+

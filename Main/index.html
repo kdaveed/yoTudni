@@ -3,9 +3,12 @@
 
 <head>
 
+<link rel="stylesheet" href="../CSS/header.css" type="text/css">
 <link rel="stylesheet" href="../CSS/main.css" type="text/css">
 <link rel="stylesheet" href="../CSS/text.css" type="text/css">
 <link rel="stylesheet" href="../CSS/img.css" type="text/css">
+<link rel="stylesheet" href="../CSS/lib.css" type="text/css">
+<link rel="stylesheet" href="../CSS/teacher.css" type="text/css">
 
 <script src="../JS/subjectData.js"></script>
 <script src="../JS/mosaikDescriptor.js"></script>
@@ -19,7 +22,7 @@
 <body ng-app="myApp">
 
 	<script type="text/ng-template" id="mosaikList.html">
-	<div class="container">
+	<div class="container yel">
 		<div class="mosaikContainer sample-show-hide" ng-show="$ctrl.mosaik1">
 			<mosaik ng-repeat="subject in $ctrl.subjects" 
 				mosaik="$ctrl.mosaik" 
@@ -57,8 +60,8 @@
   </script>
 
 	<script type="text/ng-template" id="selector.html">
-		<div class="sample-show-hide"
-			ng-class="{ selectedSubject : $ctrl.subject.shown } "
+		<div
+			ng-class="{ selectedSubject : $ctrl.subject.shown }"
 			style="	background-color : {{$ctrl.subject.color}};"
 			ng-click="$ctrl.click()">
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "middleImg secondaryImage"> 
@@ -66,10 +69,11 @@
 	</script>
 
 	<script type="text/ng-template" id="subjectDescription.html">
-		<div class="subjectDescription show-hide" 
-			style="background-color : red; ">
+		<div class="subjectDescription" 
+			style="background-color : {{$ctrl.currentSubject.color}}; ">
 			<div ng-switch="$ctrl.currentSubject.name">
-				<div ng-switch-when="matek"> <math-description></math-description></div>
+				<div ng-switch-when="matek"> <math-description subject="$ctrl.currentSubject"></math-description></div>
+				<div ng-switch-when="biologia"> <biology-description subject="$ctrl.currentSubject"></biology-description></div>
 				<div ng-switch-default> <general-description></general-description></div>
 			</div> 	
 		</div>
@@ -79,7 +83,15 @@
 		<div class="justify pad10">
 			Matek <br>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</div>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="biologyDescription.html">
+		<div class="justify pad10">
+			Biosz <br>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Tanár : <a href="#tegla"> Tegla </a>
+		</div>
 	</script>
 
 	<script type="text/ng-template" id="generalDescription.html">
@@ -88,12 +100,79 @@
 		</div>  
   </script>
 
+		<script type="text/ng-template" id="teacher.html">
+			<div class="middle">
+				<a id="tegla">
+					<div class="cent teachTitle"> Téglás Bence </div>
+					<div class="cent teacherCont">
+						<div class="teacherImgCont">
+							<img src="../img/teacher/tegla.jpg" class="teachImage"> 
+						</div>
+						<div class="teacherDsc">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</div>
+					</div>
+				</a>
+			</div>
+		</script>
+
+	<script type="text/ng-template" id="divider.html">
+		<div class="100p grey">
+			<div class="lines"></div>
+		</div>
+    </script>
+	
+	<script type="text/ng-template" id="colorDivider.html">
+		<div class="100p height20 grey">
+		</div>
+    </script>
+	
 	<div ng-controller="simpleController">
-		<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
+		<div class="yoTudniHeader">
+			<img src="../img/logo.png" class="logoImg">
+			<div class="titles">
+				<div> <a href="#intro">Bemutatkozás  </a></div>
+				<div> <a href="#subjects">Tantárgyak  </a></div>
+				<div> <a href="#teachers">Tanárok  </a></div>
+				<div> <a href="#gallery">Galéria  </a></div>
+				<div> <a href="#contact">Kontakt  </a></div>
+			</div>
+		</div>
+		<a id="intro">
+			<div class="page red"> 
+				<div class="mid">
+					<iframe class="mid" width="520" height="345" src="https://www.youtube.com/embed/y6iROW3zm6M">
+					</iframe>	
+				</div>
+				<div class="middle mar20 just">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</div>
+			</div>
+		</a>
+		<color-divider></color-divider>
+		<a id="subjects">
+			<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
+		</a>
+		<color-divider></color-divider>
+		<a id="teachers">
+			<div class="page blue"> 
+				<teacher></teacher>	
+			</div>
+		</a>
+		<color-divider></color-divider>
+		<a id ="gallery">
+			<div class="page green">
+				<div class="mid"> Galéria </div>
+			</div>
+		</a>
+		<color-divider></color-divider>
+		<a id ="contact">
+			<div class="page purple"> Kontakt</div>
+		</a>
 	</div>
-		
-		
-		
 	<script src="../JS/main.js"></script>
+	<script src="../JS/main.js"></script>
+	<script src="../JS/templates.js"></script>
+	
 </body>
 </html>
