@@ -11,8 +11,13 @@
 	margin : 0 auto;
 	min-height : 260px;
 	width : 460px;
-	text-align : justify;
+	//text-align : justify;
 	//border : 1px solid;
+}
+
+.middle {
+	margin : 0 auto;
+	width : 460px;
 }
 
 .expanded {
@@ -20,13 +25,12 @@
 	height: 300px;
 }
 
+
 .subjectDescription {
-	position: absolute;
-	//top: 30px;
-	//left: 30px;
+	
 	width: 430px;
-	height: 200px;
-	margin : 30px 20px; 
+	padding : 20px;
+	//margin : 30px 20px; 
 	background-color: yellow;
 	border-radius : 3px;
 }
