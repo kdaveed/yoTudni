@@ -47,6 +47,10 @@
 	margin-top : 20px;
 }
 
+.mar10 {
+	margin : 10px;
+}
+
 .flexClass {
 	display : flex;	
 }

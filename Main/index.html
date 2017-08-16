@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../CSS/img.css" type="text/css">
 <link rel="stylesheet" href="../CSS/lib.css" type="text/css">
 <link rel="stylesheet" href="../CSS/teacher.css" type="text/css">
+<link rel="stylesheet" href="../CSS/lightbox.css" type="text/css">
 
 <script src="../JS/subjectData.js"></script>
 <script src="../JS/mosaikDescriptor.js"></script>
@@ -126,13 +127,22 @@
 		</div>
     </script>
 	
+	<script type="text/ng-template" id="img.html">
+		
+		<a href="../img/sample/{{$ctrl.name}}.jpg" data-lightbox="previewSet" data-title="Click"> 
+			<div class="floatLeft mar10">
+				 		<img src="../img/sample/{{$ctrl.name}}.jpg" height="130" width="auto">
+			</div>
+		</a>
+    </script>
+	
 	<div ng-controller="simpleController">
 		<div class="yoTudniHeader">
 			<img src="../img/logo.png" class="logoImg">
 			<div class="titles">
 				<div> <a href="#intro">Bemutatkozás  </a></div>
 				<div> <a href="#subjects">Tantárgyak  </a></div>
-				<div> <a href="#teachers">Tanárok  </a></div>
+				<div> <a href="#teachers">Tanáraink  </a></div>
 				<div> <a href="#gallery">Galéria  </a></div>
 				<div> <a href="#contact">Kontakt  </a></div>
 			</div>
@@ -162,6 +172,11 @@
 		<a id ="gallery">
 			<div class="page green">
 				<div class="mid"> Galéria </div>
+				<div class="mid">
+					<img-comp name="1"></img-comp>
+					<img-comp name="2"></img-comp>
+					<img-comp name="3"></img-comp>
+				</div>
 			</div>
 		</a>
 		<color-divider></color-divider>
@@ -172,6 +187,7 @@
 	<script src="../JS/main.js"></script>
 	<script src="../JS/main.js"></script>
 	<script src="../JS/templates.js"></script>
+	<script src="../JS/lightbox.js"></script>
 	
 </body>
 </html>

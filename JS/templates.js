@@ -10,3 +10,10 @@ app.component("divider", {
 app.component("colorDivider", {
 	templateUrl : "colorDivider.html"
 })
+
+app.component("imgComp", {
+	bindings : {
+		name : "<"
+	},
+	templateUrl : "img.html"
+})
