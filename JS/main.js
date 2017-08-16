@@ -31,7 +31,6 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 				name : "matek"
 		}
 		
-		
 		this.hideOnes = function(subject) {
 
 			this.mosaik = false

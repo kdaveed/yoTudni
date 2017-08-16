@@ -56,7 +56,7 @@
   </script>
 
 	<script type="text/ng-template" id="selector.html">
-		<div class="sample-show-hide" 
+		<div class="sample-show-hide" ng-show="!$ctrl.subject.shown"
 			style="	background-color : {{$ctrl.subject.color}};"
 			ng-click="$ctrl.click($ctrl.subject)">
 			<img src="../img/{{$ctrl.subject.imgName}}" class = "middleImg secondaryImage"> 
