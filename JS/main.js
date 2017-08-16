@@ -27,13 +27,17 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 	var MosaikListController = function($scope, $element, $attrs) {
 
 		this.mosaik = true
+		this.mosaik1 = true
+
 		this.currentSubject = {
 				name : "matek"
 		}
 		
 		this.hideOnes = function(subject) {
 
+			this.mosaik1 = false
 			this.mosaik = false
+
 			this.currentSubject = subject
 			console.log("Subject")
 			console.log(this.currentSubject)
@@ -43,6 +47,15 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 				value : subject.index
 			})
 			this.select({subject : subject})
+		}
+
+		this.showSubject = function(subject){
+			
+			this.currentSubject.shown = false
+			subject.shown = true;
+			this.currentSubject = subject
+			console.log("MosaikController")
+			console.log(subject)
 		}
 	}
 
@@ -86,8 +99,10 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 	//Selector
 	var SelectorController = function(){
 		
-		this.myAlert = function(){
+		this.click = function(){
+			console.log("selectController")
 			console.log(this.subject)
+			this.select({subject : this.subject})
 		}
 	}
 

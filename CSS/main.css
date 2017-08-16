@@ -12,12 +12,11 @@
 	min-height : 260px;
 	width : 460px;
 	//text-align : justify;
-	//border : 1px solid;
 }
 
 .middle {
 	margin : 0 auto;
-	width : 460px;
+	width : 580px;
 }
 
 .expanded {
@@ -26,11 +25,19 @@
 }
 
 .subjectDescription {
-	
 	padding : 20px;
 	margin : 30px; 
 	background-color: yellow;
 	border-radius : 4px;
+}
+
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0.5s 0.5s;
 }
 
 .secondaryImage {
@@ -42,13 +49,13 @@
 }
 
 .show-hide {
-	transition: all linear 2s;
-	
+	transition: all linear 2s;	
 }
 
 .sample-show-hide.ng-hide {
 	opacity: 0;
 }
+
 
 .show-hide.ng-hide {
 	opacity: 0;
@@ -79,20 +86,19 @@
 }
 
 .selectorContainer {
-	width : 460px;
+	width : 560px;
 	margin: 0 auto;
 	text-align: justify;
-	border : 1px solid black;
 }
 
 .selectorContainer div{
 	display: inline-block;
-	width: 100px;
+	width: 110px;
 	height: 40px;	
-	margin : 10px 20px;
+	margin : 10px 10px;
 	border-radius : 3px;	
-	zoom: 1;
-	text-decoration: none;	
+	//zoom: 1;
+	//text-decoration: none;	
 }
 
 .selector {
@@ -101,4 +107,8 @@
 	height: 40px;	
 	margin-right : 50px;
 	border-radius : 3px;		
+}
+
+.selectedSubject{
+	border : 3px solid black;
 }
