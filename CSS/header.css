@@ -5,10 +5,16 @@
 	display : flex;
 }
 
-
 .titles {
 	margin-top : 18px;
 }
+
+.logoImg {
+    height: 200px;
+    position: relative;
+    top: -50px;
+}
+
 
 .titles > div {
 	float : left;
