@@ -158,3 +158,10 @@ var app = angular.module("myApp", [ "ngAnimate" ])
         return $sce.trustAsResourceUrl(text);
     	}
 	});
+	
+	app.component("destination", {
+	  bindings : {
+	    name : "<"
+	  },
+	  templateUrl : "destination.html"
+	})

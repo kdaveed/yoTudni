@@ -117,3 +117,8 @@
 .bckgrnd1 {
 	background-color : #DEDEDE;
 }
+
+.destination {
+	position: relative;
+  top: -140px;
+}

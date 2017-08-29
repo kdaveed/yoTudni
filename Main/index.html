@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../CSS/text.css" type="text/css">
 <link rel="stylesheet" href="../CSS/img.css" type="text/css">
 <link rel="stylesheet" href="../CSS/lib.css" type="text/css">
+<link rel="stylesheet" href="../CSS/page.css" type="text/css">
 <link rel="stylesheet" href="../CSS/teacher.css" type="text/css">
 <link rel="stylesheet" href="../CSS/lightbox.css" type="text/css">
 
@@ -22,7 +23,13 @@
 </head>
 
 <body ng-app="myApp">
+
+  <script type="text/ng-template" id="destination.html">
+    <a id="{{$ctrl.name}}" class="destination"></a>
+  </script>
+  
 	<script type="text/ng-template" id="mosaikList.html">
+  <destination name="'subjects'"></destination>
 	<div class="container yel">
 		<div class="mosaikContainer sample-show-hide" ng-show="$ctrl.mosaik1">
 			<mosaik ng-repeat="subject in $ctrl.subjects" 
@@ -30,8 +37,8 @@
 				subject="subject" 
 				hide-elements="$ctrl.hideOnes(subject)">
 			</mosaik>
-			
-		</div> 
+
+		</div>
 		<div class="middle animate-show-hide" ng-show="!$ctrl.mosaik"> 
 				<subject-description
 					show-content="!$ctrl.mosaik"
@@ -149,7 +156,7 @@
 			</div>
 		</div>
 		<a id="intro">
-			<div class="page red"> 
+			<div class="page firstPage red"> 
 				<div class="mid">
 					<iframe class="mid" width="520" height="345" src="https://www.youtube.com/embed/y6iROW3zm6M">
 					</iframe>	
@@ -160,27 +167,28 @@
 			</div>
 		</a>
 		<color-divider></color-divider>
-		<a id="subjects">
-			<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
-		</a>
+		<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
+		
 		<color-divider></color-divider>
- 		<a id="teachers">
-			<div class="page blue"> 
- 				<teacher></teacher>
- 			</div>
-		</a>
-		<color-divider></color-divider>
-		<a id ="gallery">
-			<div class="page green">
-				<div class="mid"> Galéria </div>
-				<div class="mid">
-					<img-comp name="1"></img-comp>
-					<img-comp name="2"></img-comp>
-					<img-comp name="3"></img-comp>
-				</div>
+ 		<div class="page blue"> 
+		    <destination name="'teachers'"></destination>
+			  <teacher></teacher>
+		</div>
+
+  	<color-divider></color-divider>
+
+		<div class="page green">
+       <destination name="'gallery'"></destination>
+       <div class="mid"> Galéria </div>
+			<div class="mid">
+				<img-comp name="1"></img-comp>
+				<img-comp name="2"></img-comp>
+				<img-comp name="3"></img-comp>
 			</div>
-		</a>
+		</div>
+
 		<color-divider></color-divider>
+
 		<a id ="contact">
 			<div class="page purple"> Kontakt</div>
 		</a>
