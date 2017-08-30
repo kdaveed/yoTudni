@@ -30,7 +30,7 @@
   
 	<script type="text/ng-template" id="mosaikList.html">
   <destination name="'subjects'"></destination>
-	<div class="container yel">
+	<div class="container yel padY">
 		<div class="mosaikContainer sample-show-hide" ng-show="$ctrl.mosaik1">
 			<mosaik ng-repeat="subject in $ctrl.subjects" 
 				mosaik="$ctrl.mosaik" 
@@ -131,9 +131,9 @@
     </script>
 	
 	<script type="text/ng-template" id="colorDivider.html">
-		<div class="100p height20 grey">
+		<div class="100p_ height20_ grey_ colorDivider">
 		</div>
-    </script>
+   </script>
 	
 	<script type="text/ng-template" id="img.html">
 		
@@ -146,13 +146,18 @@
 	
 	<div ng-controller="simpleController">
 		<div class="yoTudniHeader">
-			<img src="../img/yoTudniLogo.png" class="logoImg">
-			<div class="titles">
-				<div> <a href="#intro">Bemutatkozás  </a></div>
-				<div> <a href="#subjects">Tantárgyak  </a></div>
-				<div> <a href="#teachers">Tanáraink  </a></div>
-				<div> <a href="#gallery">Galéria  </a></div>
-				<div> <a href="#contact">Kontakt  </a></div>
+			<div class="mid">
+			  <div class="titles">
+					<div class="red corrected">
+					   <a href="#intro"> 
+					     <img src="../img/yoTudniLogoLight.png" class="logoImg">
+					   </a>
+					</div>
+					<div class="yel"> <a href="#subjects">Tantárgyak  </a></div>
+					<div class="blue"> <a href="#teachers">Tanáraink  </a></div>
+					<div class="green"> <a href="#gallery">Galéria  </a></div>
+					<div class="purple"> <a href="#contact">Kontakt  </a></div>
+				</div>
 			</div>
 		</div>
 		<a id="intro">

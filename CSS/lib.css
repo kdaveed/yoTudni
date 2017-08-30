@@ -65,8 +65,11 @@
 }
 
 .yel {
-	padding : 40px 0;
 	background-color : #FEC728;
+}
+
+.padY {
+	 padding : 40px 0;
 }
 
 .green {
