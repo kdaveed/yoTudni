@@ -15,5 +15,5 @@ app.component("imgComp", {
 	bindings : {
 		name : "<"
 	},
-	templateUrl : "img.html"
+	templateUrl : "img.html",
 })

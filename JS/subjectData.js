@@ -99,3 +99,23 @@ var menu = {
       imgUrl : "envelope",
     }
 }
+
+var teachers = {
+  
+  tegla : {
+    name : "Teglás Bence",
+    img : "tegla.jpg",
+    text : `2008-ban szereztem angol anyanyelvi szintű nyelvvizsgát a Cambridge-i egyetem
+            nyelvvizsgarendszerében. Azóta, immáron 9 éve foglalkozom csoportos és egyéni angol
+            nyelvoktatással egyaránt. Biológiából 92%-os emeltszintű érettségi eredménnyel jutottam be az ELTE
+            TTK biológia szakára kutatói szakirányon, ahol Summa Cum Laude eredménnyel végeztem el a BSc
+            képzést. Jelenleg molekuláris genetika sejt és fejlődésbiológia szakirányú mesterképzésben
+            folytatom tanulmányaimat az ELTE természettudományi karán. Óráimon kiemelkedően fontosnak
+            tartom a barátságos és közvetlen légkört. Gyakori számonkérésekkel, csoportos és egyéni munkákkal
+            igyekszem diákjaimból kihozni a lehető legtöbbet. Korábbi diákjaim közül immáron 47-en szereztek
+            sikeres nyelvvizsgát, és 28-an jutottak be igen magas pontszámú egyetemekre (Semmelweis
+            általános orvosi szak, gyógyszerész szak, fogorvosi szak stb.), ami önmagáért beszél. Amennyiben
+            fiatalos, barátságos hangvételű ugyanakkor igen hatékony felkészülést szeretnél
+            nyelvvizsgára/érettségire keress meg bátran!`
+  }
+}

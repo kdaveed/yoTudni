@@ -110,7 +110,7 @@
 .page {
 	padding : 40px 0;
 	width : 100%;
-	height : 500px;
+	/* height : 500px; */
 }
 
 .bckgrnd1 {
@@ -119,7 +119,7 @@
 
 .destination {
 	position: relative;
-  top: -140px;
+	top: -70px;
 }
 
 .colorDivider{
