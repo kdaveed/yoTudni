@@ -6,7 +6,6 @@
 
 <link rel="stylesheet" href="../CSS/header.css" type="text/css">
 <link rel="stylesheet" href="../CSS/img.css" type="text/css">
-<link rel="stylesheet" href="../CSS/into.css" type="text/css">
 <link rel="stylesheet" href="../CSS/lib.css" type="text/css">
 <link rel="stylesheet" href="../CSS/lightbox.css" type="text/css">
 <link rel="stylesheet" href="../CSS/main.css" type="text/css">
@@ -21,17 +20,31 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
 <script src="../JS/util.js"></script>
+
+<script src="../JS/template/menu.js" type="text/ng-template"
+	id="menu.html"></script>
+
+
 </head>
 
 <body ng-app="myApp">
 
-  <script type="text/ng-template" id="nav.html">
+	<script type="text/ng-template" id="teacherProfile.html">
+    <div class="teacherContainer">
+      <img src="../img/teacher/{{$ctrl.teacher.img}}" class="teachImage">
+      <div class="teachTitle mid"> {{$ctrl.teacher.name}} </div>
+     <!-- <div class="mid"> {{$ctrl.teacher.subjectName}} </div> -->
+      <img src="../img/teacher/info.png" class="infoImg mid">
+   </div>
+  </script>
+
+	<script type="text/ng-template" id="nav.html">
      <div class="">
       <a id="{{$ctrl.name}}" class="destination"></a>
      </div>
   </script>
-  
-  <script type="text/ng-template" id="menu.html">
+
+	<script type="text/ng-template" id="menu.html">
      <div class="pad {{$ctrl.data.color}}"> 
         <a href="#{{$ctrl.data.link}}">
           <div class="flex">
@@ -41,11 +54,11 @@
         </a>
      </div>
   </script>
-  
-  <script type="text/ng-template" id="destination.html">
+
+	<script type="text/ng-template" id="destination.html">
     <a id="{{$ctrl.name}}" class="destination"></a>
   </script>
-  
+
 	<script type="text/ng-template" id="mosaikList.html">
   <destination name="'subjects'"></destination>
 	<div class="container yel padY">
@@ -126,7 +139,7 @@
 		</div>  
   </script>
 
-		<script type="text/ng-template" id="teacher.html">
+	<script type="text/ng-template" id="teacher.html">
 			<div class="middle">
 				<a id="tegla">
 					<div class="cent teachTitle"> Téglás Bence </div>
@@ -147,12 +160,12 @@
 			<div class="lines"></div>
 		</div>
     </script>
-	
+
 	<script type="text/ng-template" id="colorDivider.html">
 		<div class="100p_ height20_ grey_ colorDivider">
 		</div>
    </script>
-	
+
 	<script type="text/ng-template" id="img.html">
 		
 		<a href="../img/sample/{{$ctrl.name}}.jpg" data-lightbox="previewSet" data-title="Click"> 
@@ -161,44 +174,64 @@
 			</div>
 		</a>
     </script>
-	
+
 	<div ng-controller="simpleController">
 		<div class="yoTudniHeader">
-		
-      <menu-item data="menu.gallery"></menu-item>
-      <menu-item data="menu.subjects"></menu-item> 
-      <div class="cont red">
-         <a href="#intro">
-           <img src="../img/yoTudniLogoLight.png" class="logoImg">
-         </a>
-      </div>
-      <menu-item data="menu.teachers"></menu-item>
+
+			<menu-item data="menu.gallery"></menu-item>
+			<menu-item data="menu.subjects"></menu-item>
+			<div class="cont red">
+				<a href="#intro"> <img src="../img/yoTudniLogoLight.png"
+					class="logoImg">
+				</a>
+			</div>
+			<menu-item data="menu.teachers"></menu-item>
 			<menu-item data="menu.contact"></menu-item>
-	  </div>
+		</div>
 		<a id="intro">
-			<div class="page firstPage red intro"> 
+			<div class="page firstPage red intro">
 				<div class="mid">
-					<iframe class="mid" width="520" height="345" src="https://www.youtube.com/embed/y6iROW3zm6M">
-					</iframe>	
+					<iframe class="mid" width="520" height="345"
+						src="https://www.youtube.com/embed/y6iROW3zm6M"> </iframe>
 				</div>
-				<div class="middle mar20 just">
-					A Yo tudni! egy teljesen egyedülálló érettségi előkészítő. Csoportjaink a lehető legkisebb létszámban (3-7) fő indulnak csak el, hogy a lehető legtöbb személyes figyelmet fordíthassuk diákjainkra. Tanáraink egytől egyig az adott tantárgyat kiemelkedően magas fokon ismerő, nagy tapasztalattal rendelkező fiatalok, akik jól ismerik az iskolapad nehézségeit. Közvetlen hangvételű óráinkon igyekszünk messze elrugaszkodni a klasszikus frontális oktatás hátrányaitól és diákjaink kíváncsiságát felkeltve közös munkafolyamatként átadni nekik az érettségihez szükséges tudást, sőt többet. Hisszük, hogy a tanár iránti tisztelet egy diákban nem a túlzott szigoron, félreértett fegyelmen, vagy távolságtartáson alapul. A diákok közeli ismerte, a tantárgy teljesen átható tudása és szenvedélyes szeretete, sőt legtöbb esetben aktív kutatói szintű vagy alkalmazott gyakorlása sokkal inkább alkalmas a tisztelet elnyerésére. Korábbi tanítványaink több mint 80%-át felvették abba az intézménybe ahová leadta jelentkezését, vagy elérte a célként kitűzött érettségi pontszámot, ami önmagáért beszél. Ha hatékonyan és élvezettel szeretnéd elsajátítatni az érettségihez szükséges tudást a Yo tudni! a te előkészítőd! Válj egy megalapozottan gondolkodó és közvetlen csoport tagjává és jelentkezz a megadott elérhetőségeken!
-				</div>
+				<div class="middle mar20 just">A Yo tudni! egy teljesen
+					egyedülálló érettségi előkészítő. Csoportjaink a lehető legkisebb
+					létszámban (3-7) fő indulnak csak el, hogy a lehető legtöbb
+					személyes figyelmet fordíthassuk diákjainkra. Tanáraink egytől
+					egyig az adott tantárgyat kiemelkedően magas fokon ismerő, nagy
+					tapasztalattal rendelkező fiatalok, akik jól ismerik az iskolapad
+					nehézségeit. Közvetlen hangvételű óráinkon igyekszünk messze
+					elrugaszkodni a klasszikus frontális oktatás hátrányaitól és
+					diákjaink kíváncsiságát felkeltve közös munkafolyamatként átadni
+					nekik az érettségihez szükséges tudást, sőt többet. Hisszük, hogy a
+					tanár iránti tisztelet egy diákban nem a túlzott szigoron,
+					félreértett fegyelmen, vagy távolságtartáson alapul. A diákok
+					közeli ismerte, a tantárgy teljesen átható tudása és szenvedélyes
+					szeretete, sőt legtöbb esetben aktív kutatói szintű vagy
+					alkalmazott gyakorlása sokkal inkább alkalmas a tisztelet
+					elnyerésére. Korábbi tanítványaink több mint 80%-át felvették abba
+					az intézménybe ahová leadta jelentkezését, vagy elérte a célként
+					kitűzött érettségi pontszámot, ami önmagáért beszél. Ha hatékonyan
+					és élvezettel szeretnéd elsajátítatni az érettségihez szükséges
+					tudást a Yo tudni! a te előkészítőd! Válj egy megalapozottan
+					gondolkodó és közvetlen csoport tagjává és jelentkezz a megadott
+					elérhetőségeken!</div>
 			</div>
 		</a>
-		<color-divider></color-divider>
 		<mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
-		
+
 		<color-divider></color-divider>
- 		<div class="page blue"> 
-		    <a id="teachers" class="teacherDest"></a>
-		    <teacher></teacher>
+		<div class="page blue">
+			<a id="teachers" class="teacherDest"></a>
+			<div class="teachersContainer mid">
+			 <teacher-profile teacher="teachers.tegla"></teacher-profile>
+			</div>
 		</div>
 
-  	<color-divider></color-divider>
+		<color-divider></color-divider>
 		<div class="page green">
-       <destination name="'gallery'"></destination>
-       <div class="mid"> Galéria </div>
+			<destination name="'gallery'"></destination>
+			<div class="mid">Galéria</div>
 			<div class="mid">
 				<img-comp name="1"></img-comp>
 				<img-comp name="2"></img-comp>
@@ -206,16 +239,19 @@
 			</div>
 		</div>
 
-		<color-divider></color-divider>
-
-		<a id ="contact">
-			<div class="page purple"> Kontakt</div>
+		<a id="contact">
+		  <destination name="'contact'"></destination>
+		  <div class="page purple">
+			   <div class="mid">
+<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Budapest%2C%20HU&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>embed google map <a href="http://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{overflow:hidden;height:500px;width:600px;}.gmap_canvas {background:none!important;height:500px;width:600px;}</style></div>         </div>
+			</div>
 		</a>
 	</div>
+	
 	<script src="../JS/main.js"></script>
 	<script src="../JS/main.js"></script>
 	<script src="../JS/templates.js"></script>
 	<script src="../JS/lightbox.js"></script>
-	
+
 </body>
 </html>

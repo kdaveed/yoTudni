@@ -96,4 +96,9 @@
 	background-color : #EDE9E9;
 }
 
+.table{
+	display : table;
+	width: 200px;
+}
+
 

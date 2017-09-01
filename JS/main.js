@@ -17,8 +17,8 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		$scope.select = function(index) {
 			console.log("selected index : " + index)
 		}
-		//Initialize 
 		
+		//Initialize 
 		$scope.showDsc = false;
 		$scope.subjectName = "matek";
 		
@@ -28,6 +28,8 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		
 		$scope.subjects = subjectData
 		$scope.menu = menu
+    $scope.teachers = teachers
+
 		console.log($scope.menu)
 		$scope.subjectList = calculateCoords(subjectList, Mosaik.config)
 		console.log("SubjectList")
@@ -197,4 +199,5 @@ var app = angular.module("myApp", [ "ngAnimate" ])
    	templateUrl : "menu.html",
     //controllerAs : "this"
   })
+  
   

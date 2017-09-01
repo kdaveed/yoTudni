@@ -2,20 +2,22 @@
 
 .teachTitle {
 	font-style : underline;
-	font-weight: bold;
-	font-size : 20px;	
+	font-weight: 500;
+	font-size: 23px;
+	display: table;
 }
 
 .teacherCont {
-	display : flex;
-	justify-content : space-evenly;
-	//width : 400px;
+	/* display : flex; */
+	/* justify-content : space-evenly; */
+	//
+	width : 400px;
 }
 
 .teachImage {
-	width : 200px;
+	width: 180px;
 	border : 5px solid #CACFD2;
-	border-radius : 5px;
+	border-radius: 100px;
 }
 
 .teacherCont > div{
@@ -37,4 +39,20 @@
 	border : 3px solid #DBCDCD;
 	background-color : #EDE1E1;
 	paddig : 20px;
+}
+
+.teacherContainer{
+	width: 190px;
+	margin: 20px;
+}
+
+
+.teachersContainer{
+  /* width: 400px; */
+}
+
+.infoImg {
+  width: 30px;
+  margin-top: 10px;
+  /* float: left; */
 }

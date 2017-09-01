@@ -17,3 +17,13 @@ app.component("imgComp", {
 	},
 	templateUrl : "img.html",
 })
+
+
+
+app.component("teacherProfile", {
+   bindings : {
+     teacher : "<",
+   },
+   templateUrl : "teacherProfile.html"
+   
+})

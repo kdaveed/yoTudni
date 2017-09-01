@@ -96,6 +96,7 @@ var menu = {
     contact : {
       color : "purple",
       text : "Kontakt",
+      link : "contact",
       imgUrl : "envelope",
     }
 }
@@ -105,7 +106,8 @@ var teachers = {
   tegla : {
     name : "Teglás Bence",
     img : "tegla.jpg",
-    text : `2008-ban szereztem angol anyanyelvi szintű nyelvvizsgát a Cambridge-i egyetem
+    subjectName : "Biológia",
+    info : `2008-ban szereztem angol anyanyelvi szintű nyelvvizsgát a Cambridge-i egyetem
             nyelvvizsgarendszerében. Azóta, immáron 9 éve foglalkozom csoportos és egyéni angol
             nyelvoktatással egyaránt. Biológiából 92%-os emeltszintű érettségi eredménnyel jutottam be az ELTE
             TTK biológia szakára kutatói szakirányon, ahol Summa Cum Laude eredménnyel végeztem el a BSc
@@ -117,5 +119,6 @@ var teachers = {
             általános orvosi szak, gyógyszerész szak, fogorvosi szak stb.), ami önmagáért beszél. Amennyiben
             fiatalos, barátságos hangvételű ugyanakkor igen hatékony felkészülést szeretnél
             nyelvvizsgára/érettségire keress meg bátran!`
-  }
+  },
+  
 }
