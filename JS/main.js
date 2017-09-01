@@ -27,6 +27,8 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		$scope.current = "matek"
 		
 		$scope.subjects = subjectData
+		$scope.menu = menu
+		console.log($scope.menu)
 		$scope.subjectList = calculateCoords(subjectList, Mosaik.config)
 		console.log("SubjectList")
 		console.log($scope.subjectList)
@@ -165,3 +167,34 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 	  },
 	  templateUrl : "destination.html"
 	})
+	
+	var NavController = function(){
+	  
+	}
+	
+	app.component("nav", {
+    bindings : {
+      name : "<",
+    },
+    controller : NavController,
+    templateUrl : "destination.html"
+  })
+	
+  var MenuController = function($scope, $element, $attrs){
+	  
+	  $element.addClass('cont')
+	  console.log('Data : ')
+	  console.log(this)
+	  console.log(this['data'])
+	}
+	
+  app.component("menuItem", {
+    controller : MenuController,
+    bindings : { 
+      data : "<",
+      sg : "<"
+    },
+   	templateUrl : "menu.html",
+    //controllerAs : "this"
+  })
+  

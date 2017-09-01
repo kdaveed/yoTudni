@@ -6,9 +6,6 @@ app.controller("ctrl", function($scope){
 
 	
 	
-	
-	
-	
 	$scope.initSubject = function(subjectName){
 		
 		$scope.hideIcons(subjectName)

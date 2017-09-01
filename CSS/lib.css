@@ -55,6 +55,14 @@
 	display : flex;	
 }
 
+.flex{
+  display : flex;
+}
+
+.flexChild {
+  flex : 1;	
+}
+
 
 .flexItem {
 	flex : 1;

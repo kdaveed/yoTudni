@@ -69,3 +69,33 @@ var subjectList = [
 			teacher : "D",
 			shown :  true,
 		}]
+
+var menu = {
+    
+    gallery : {
+      color : "green",
+      link : "gallery",
+      text : "Galéria",
+      imgUrl : "gallery3"
+    },
+
+    subjects : {
+      color : "yel",
+      link : "subjects",
+      text : "Tantárgyak",
+      imgUrl : "books1"
+   },
+
+   teachers : {
+      color : "blue",
+      link : "teachers",
+      text : "Tanáraink",
+      imgUrl : "userGroup",
+    },
+
+    contact : {
+      color : "purple",
+      text : "Kontakt",
+      imgUrl : "envelope",
+    }
+}

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<meta charset="UTF-8">
 <head>
 
 <link rel="stylesheet" href="../CSS/header.css" type="text/css">
-<link rel="stylesheet" href="../CSS/main.css" type="text/css">
-<link rel="stylesheet" href="../CSS/text.css" type="text/css">
 <link rel="stylesheet" href="../CSS/img.css" type="text/css">
+<link rel="stylesheet" href="../CSS/into.css" type="text/css">
 <link rel="stylesheet" href="../CSS/lib.css" type="text/css">
+<link rel="stylesheet" href="../CSS/lightbox.css" type="text/css">
+<link rel="stylesheet" href="../CSS/main.css" type="text/css">
 <link rel="stylesheet" href="../CSS/page.css" type="text/css">
 <link rel="stylesheet" href="../CSS/teacher.css" type="text/css">
-<link rel="stylesheet" href="../CSS/lightbox.css" type="text/css">
+<link rel="stylesheet" href="../CSS/text.css" type="text/css">
 
 <script src="../JS/subjectData.js"></script>
 <script src="../JS/mosaikDescriptor.js"></script>
@@ -24,6 +25,23 @@
 
 <body ng-app="myApp">
 
+  <script type="text/ng-template" id="nav.html">
+     <div class="">
+      <a id="{{$ctrl.name}}" class="destination"></a>
+     </div>
+  </script>
+  
+  <script type="text/ng-template" id="menu.html">
+     <div class="pad {{$ctrl.data.color}}"> 
+        <a href="#{{$ctrl.data.link}}">
+          <div class="flex">
+            <div class="flexChild name"> {{$ctrl.data.text}} </div>
+            <img src="../img/headerImg/{{$ctrl.data.imgUrl}}.png" class="navImg">
+          </div>
+        </a>
+     </div>
+  </script>
+  
   <script type="text/ng-template" id="destination.html">
     <a id="{{$ctrl.name}}" class="destination"></a>
   </script>
@@ -98,7 +116,7 @@
 		<div class="justify pad10">
 			Biosz <br>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Tan�r : <a href="#tegla"> Tegla </a>
+			Tanár : <a href="#tegla"> Tegla </a>
 		</div>
 	</script>
 
@@ -111,7 +129,7 @@
 		<script type="text/ng-template" id="teacher.html">
 			<div class="middle">
 				<a id="tegla">
-					<div class="cent teachTitle"> T�gl�s Bence </div>
+					<div class="cent teachTitle"> Téglás Bence </div>
 					<div class="cent teacherCont">
 						<div class="teacherImgCont">
 							<img src="../img/teacher/tegla.jpg" class="teachImage"> 
@@ -146,28 +164,25 @@
 	
 	<div ng-controller="simpleController">
 		<div class="yoTudniHeader">
-			<div class="mid">
-			  <div class="titles">
-					<div class="red corrected">
-					   <a href="#intro"> 
-					     <img src="../img/yoTudniLogoLight.png" class="logoImg">
-					   </a>
-					</div>
-					<div class="yel"> <a href="#subjects">Tant�rgyak  </a></div>
-					<div class="blue"> <a href="#teachers">Tan�raink  </a></div>
-					<div class="green"> <a href="#gallery">Gal�ria  </a></div>
-					<div class="purple"> <a href="#contact">Kontakt  </a></div>
-				</div>
-			</div>
-		</div>
+		
+      <menu-item data="menu.gallery"></menu-item>
+      <menu-item data="menu.subjects"></menu-item> 
+      <div class="cont red">
+         <a href="#intro">
+           <img src="../img/yoTudniLogoLight.png" class="logoImg">
+         </a>
+      </div>
+      <menu-item data="menu.teachers"></menu-item>
+			<menu-item data="menu.contact"></menu-item>
+	  </div>
 		<a id="intro">
-			<div class="page firstPage red"> 
+			<div class="page firstPage red intro"> 
 				<div class="mid">
 					<iframe class="mid" width="520" height="345" src="https://www.youtube.com/embed/y6iROW3zm6M">
 					</iframe>	
 				</div>
 				<div class="middle mar20 just">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					A Yo tudni! egy teljesen egyedülálló érettségi előkészítő. Csoportjaink a lehető legkisebb létszámban (3-7) fő indulnak csak el, hogy a lehető legtöbb személyes figyelmet fordíthassuk diákjainkra. Tanáraink egytől egyig az adott tantárgyat kiemelkedően magas fokon ismerő, nagy tapasztalattal rendelkező fiatalok, akik jól ismerik az iskolapad nehézségeit. Közvetlen hangvételű óráinkon igyekszünk messze elrugaszkodni a klasszikus frontális oktatás hátrányaitól és diákjaink kíváncsiságát felkeltve közös munkafolyamatként átadni nekik az érettségihez szükséges tudást, sőt többet. Hisszük, hogy a tanár iránti tisztelet egy diákban nem a túlzott szigoron, félreértett fegyelmen, vagy távolságtartáson alapul. A diákok közeli ismerte, a tantárgy teljesen átható tudása és szenvedélyes szeretete, sőt legtöbb esetben aktív kutatói szintű vagy alkalmazott gyakorlása sokkal inkább alkalmas a tisztelet elnyerésére. Korábbi tanítványaink több mint 80%-át felvették abba az intézménybe ahová leadta jelentkezését, vagy elérte a célként kitűzött érettségi pontszámot, ami önmagáért beszél. Ha hatékonyan és élvezettel szeretnéd elsajátítatni az érettségihez szükséges tudást a Yo tudni! a te előkészítőd! Válj egy megalapozottan gondolkodó és közvetlen csoport tagjává és jelentkezz a megadott elérhetőségeken!
 				</div>
 			</div>
 		</a>
@@ -181,10 +196,9 @@
 		</div>
 
   	<color-divider></color-divider>
-
 		<div class="page green">
        <destination name="'gallery'"></destination>
-       <div class="mid"> Gal�ria </div>
+       <div class="mid"> Galéria </div>
 			<div class="mid">
 				<img-comp name="1"></img-comp>
 				<img-comp name="2"></img-comp>
