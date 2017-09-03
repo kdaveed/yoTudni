@@ -6,6 +6,19 @@ $(document).on('click', 'a', function(event){
     }, 500);
 });
 
+$(window).on('resize', function() {
+  
+  //console.log("Document : " + $(document).width())
+  //console.log("YoTudniHeader : " + $('.yoTudniHeader').width())
+  //$(".page").width($(document).width())
+  var totalWidth = 0;
+  $('.cont').each(function(index) {
+    totalWidth += parseInt($(this).width(), 10);
+   });
+  //console.log("Total : " + totalWidth)
+  $(".page").width(totalWidth)
+})
+
 var app = angular.module("myApp", [ "ngAnimate" ])
 	app.controller("simpleController", function($scope) {
 
@@ -199,5 +212,3 @@ var app = angular.module("myApp", [ "ngAnimate" ])
    	templateUrl : "menu.html",
     //controllerAs : "this"
   })
-  
-  

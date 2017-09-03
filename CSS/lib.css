@@ -6,6 +6,7 @@
 .middle {
 	margin : 0 auto;
 	width : 580px;
+	white-space: initial;
 }
 
 .mid {

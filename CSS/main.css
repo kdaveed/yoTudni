@@ -1,3 +1,7 @@
+.bodyClass {
+	white-space: nowrap;
+}
+
 .mosaik {
 	//position: absolute;
 	width: 200px;
@@ -109,8 +113,9 @@
 
 .page {
 	padding : 40px 0;
-	width : 100%;
+	width: auto;
 	/* height : 500px; */
+	/* white-space: normal; */
 }
 
 .bckgrnd1 {
