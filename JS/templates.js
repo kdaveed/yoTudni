@@ -18,9 +18,16 @@ app.component("imgComp", {
 	templateUrl : "img.html",
 })
 
+
+
+var TeacherController = function(){
+   
+}
+
 app.component("teacherProfile", {
    bindings : {
      teacher : "<",
    },
    templateUrl : "teacherProfile.html",
+   controller : TeacherController,
 })

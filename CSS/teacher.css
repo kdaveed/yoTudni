@@ -41,6 +41,11 @@
 	paddig : 20px;
 }
 
+
+.teacherInfo {
+	white-space: normal;
+}
+
 .teacherContainer{
 	width: 190px;
 	margin: 20px;
