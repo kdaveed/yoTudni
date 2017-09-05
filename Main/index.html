@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../CSS/lib.css" type="text/css">
 <link rel="stylesheet" href="../CSS/lightbox.css" type="text/css">
 <link rel="stylesheet" href="../CSS/main.css" type="text/css">
+<link rel="stylesheet" href="../CSS/mosaik.css" type="text/css">
 <link rel="stylesheet" href="../CSS/page.css" type="text/css">
 <link rel="stylesheet" href="../CSS/teacher.css" type="text/css">
 <link rel="stylesheet" href="../CSS/text.css" type="text/css">
@@ -44,7 +45,6 @@
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-body teacherInfo just">
@@ -54,10 +54,8 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
     </div>
   </div>
-  
 </div>
 
 
@@ -87,7 +85,6 @@
 
 	<script type="text/ng-template" id="mosaikList.html">
   
-
 		<div class="mosaikContainer sample-show-hide" ng-show="$ctrl.mosaik1">
 			<mosaik ng-repeat="subject in $ctrl.subjects" 
 				mosaik="$ctrl.mosaik" 
@@ -104,7 +101,7 @@
 		</div>
 		<div class="selectorContainer animate-show-hide" ng-show="!$ctrl.mosaik">
 				<selector 
-					ng-repeat="subject in $ctrl.subjects" 
+					ng-repeat="subject in $ctrl.subjects"
 					subject="subject"
 					select="$ctrl.showSubject(subject)">
 				</selector>	
@@ -119,7 +116,8 @@
 					left : {{$ctrl.subject.coords.left}}px;
 					top : {{$ctrl.subject.coords.top}}px;"
 			ng-click="$ctrl.click($ctrl.subject)">
-			<img src="../img/{{$ctrl.subject.imgName}}" class="middleImg secondaryImage"> 
+			<img src="../img/{{$ctrl.subject.imgName}}" class="middleImg" 
+          style="width : {{$ctrl.subject.width}}px;"> 
 		</div>			
   </script>
 

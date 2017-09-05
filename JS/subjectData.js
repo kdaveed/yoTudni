@@ -9,6 +9,7 @@ var subjectData = {
 		name : "matek",
 		teacher : "A",
 		shown :  true,
+    width : 30,
 	},
 
 	biologia : {
@@ -18,6 +19,7 @@ var subjectData = {
 		name : "biologia",
 		teacher : "B",
 		shown :  true,
+		width : 30,
 	},
 
 	kemia : {
@@ -27,6 +29,7 @@ var subjectData = {
 		name : "kemia",
 		teacher : "C",
 		shown :  true,
+		width : 80,
 	},
 	
 	fizika : {
@@ -36,6 +39,7 @@ var subjectData = {
 		name : "fizika",
 		teacher : "D",
 		shown :  true,
+		width : 140,
 	}
 }
 
@@ -47,6 +51,7 @@ var subjectList = [
 			name : "matek",
 			teacher : "A",
 			shown :  true,
+			width : 72,
 		}, {
 			imgName : "biologia.png",
 			color : "#83CB89",
@@ -54,6 +59,7 @@ var subjectList = [
 			name : "biologia",
 			teacher : "B",
 			shown :  true,
+			width : 107,
 		}, {
 			imgName : "kemia.png",
 			color : "#C4699E",
@@ -61,6 +67,7 @@ var subjectList = [
 			name : "kemia",
 			teacher : "C",
 			shown :  true,
+			width : 72,
 		}, {
 			imgName : "fizika.png",
 			color : "#00A8C5",
@@ -68,6 +75,7 @@ var subjectList = [
 			name : "fizika",
 			teacher : "D",
 			shown :  true,
+			width : 80,
 		}]
 
 var menu = {
