@@ -44,39 +44,55 @@ var subjectData = {
 }
 
 var subjectList = [
-		 {
+  {
+    imgName : "biologia.png",
+    color : "#83CB89",
+    index : 1,
+    name : "biologia",
+    teacher : "B",
+    shown :  true,
+    width : 107,
+  },{
+    imgName : "kemia.png",
+    color : "#00A8C5",
+    index : 2,
+    name : "kemia",
+    teacher : "C",
+    shown :  true,
+    width : 72,
+  }, {
+    imgName : "fizika.png",
+    color : "#00A8C5",
+    index : 3,
+    name : "fizika",
+    teacher : "D",
+    shown :  true,
+    width : 80,
+  }, {
 			imgName : "matek.png",
 			color : "#FC5E5E",
-			index : 1,
+			index : 4,
 			name : "matek",
 			teacher : "A",
 			shown :  true,
 			width : 72,
-		}, {
-			imgName : "biologia.png",
-			color : "#83CB89",
-			index : 2,
-			name : "biologia",
-			teacher : "B",
-			shown :  true,
-			width : 107,
-		}, {
-			imgName : "kemia.png",
-			color : "#C4699E",
-			index : 3,
-			name : "kemia",
-			teacher : "C",
-			shown :  true,
-			width : 72,
-		}, {
-			imgName : "fizika.png",
-			color : "#00A8C5",
-			index : 4,
-			name : "fizika",
-			teacher : "D",
-			shown :  true,
-			width : 80,
-		}]
+	}, {
+		imgName : "angol.png",
+		color : "#FC5E5E",
+    index : 5,
+    name : "angol",
+    teacher : "A",
+    shown :  true,
+    width : 82,
+  }, {
+    imgName : "foldrajz.png",
+    color : "#83CB89",
+    index : 6,
+    name : "foldrajz",
+    teacher : "A",
+    shown :  true,
+    width : 122,
+  }]
 
 var menu = {
     

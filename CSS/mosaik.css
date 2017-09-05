@@ -1,15 +1,16 @@
 .mosaik {
-  //position: absolute;
+  //
+  position: absolute;
   width: 200px;
   height: 100px;
   float : left;
-  margin : 15px;
+  margin: 15px;
   border-radius: 5px;
 }
 
 .mosaikContainer {
   margin : 0 auto;
-  min-height : 260px;
+  min-height: 390px;
   width: 480px;
   text-align : justify;
 }
