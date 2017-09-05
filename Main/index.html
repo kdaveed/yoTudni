@@ -25,7 +25,6 @@
 <script src="../JS/template/menu.js" type="text/ng-template"
 	id="menu.html"></script>
 
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -33,6 +32,24 @@
 </head>
 
 <body ng-app="myApp" class="bodyClass">
+
+  
+  <script type="text/ng-template" id="popup.html">
+  <div class="modal fade" id="{{$ctrl.id}}" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          {{$ctrl.content}} 
+          Something
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </script>
 
 	<script type="text/ng-template" id="teacherProfile.html">
     <div class="teacherContainer">
@@ -118,7 +135,8 @@
 			ng-click="$ctrl.click($ctrl.subject)">
 			<img src="../img/{{$ctrl.subject.imgName}}" class="middleImg" 
           style="width : {{$ctrl.subject.width}}px;"> 
-		</div>			
+		</div>
+    <popup id="$ctrl.subject.index" content="$ctrl.subject.name"></popup>
   </script>
 
 	<script type="text/ng-template" id="selector.html">
@@ -246,14 +264,14 @@
       <destination name="'subjects'"></destination>  
 		  <mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
 		</div>	
-		
+		<!-- 
 		<color-divider></color-divider>
 		<div class="page blue">
 			<a id="teachers" class="teacherDest"></a>
 			<div class="teachersContainer mid">
 			 <teacher-profile teacher="teachers.tegla"></teacher-profile>
 			</div>
-		</div>
+		</div>  -->
 		
 		<div class="page green">
 			<destination name="'gallery'"></destination>
@@ -273,7 +291,6 @@
 		</div>
 	</div>
 
-  
 	<script src="../JS/main.js"></script>
 	<script src="../JS/templates.js"></script>
 	<script src="../JS/lightbox.js"></script>

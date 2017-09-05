@@ -19,7 +19,6 @@ app.component("imgComp", {
 })
 
 
-
 var TeacherController = function(){
    
 }
@@ -30,4 +29,14 @@ app.component("teacherProfile", {
    },
    templateUrl : "teacherProfile.html",
    controller : TeacherController,
+})
+
+
+app.component("popup", {
+   bindings : {
+     id : "<",
+     content : "<",
+     config : "<",
+   },
+   templateUrl : "popup.html"
 })

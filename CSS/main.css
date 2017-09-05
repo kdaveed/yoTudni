@@ -72,11 +72,13 @@
 .selectorContainer div{
 	display: inline-block;
 	width: 110px;
-	height: 40px;	
+	height: 40px;
 	margin : 10px 10px;
 	border-radius : 3px;	
-	//zoom: 1;
-	//text-decoration: none;	
+	//
+	zoom: 1;
+	//
+	text-decoration: none;
 }
 
 .selector {

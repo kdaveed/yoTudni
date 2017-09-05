@@ -42,7 +42,7 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		$scope.secSelector = false;
 		$scope.current = "matek"
 		
-		$scope.subjects = subjectData
+		//$scope.subjects = subjectData
 		$scope.menu = menu
     $scope.teachers = teachers
 
@@ -98,16 +98,10 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 	function MosaikController($scope, $element, $attrs) {
 
 		this.click = function(value) {
-			
+
 			this.mosaik = false
 			this.content = true
-			//Old solution
-			//this.subject.coords.left = 30;
-			//this.subject.coords.top = 30;
-			console.log("Subject")
-			this.hideElements({
-				subject : this.subject
-			})
+			$("#" + this.subject.index).modal()
 		}
 	}
 	
