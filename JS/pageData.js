@@ -130,6 +130,7 @@ var teachers = {
   tegla : {
     name : "Teglás Bence",
     img : "tegla.jpg",
+    id : "tegla",
     subjectName : "Biológia",
     info : `2008-ban szereztem angol anyanyelvi szintű nyelvvizsgát a Cambridge-i egyetem
             nyelvvizsgarendszerében. Azóta, immáron 9 éve foglalkozom csoportos és egyéni angol
@@ -144,5 +145,20 @@ var teachers = {
             fiatalos, barátságos hangvételű ugyanakkor igen hatékony felkészülést szeretnél
             nyelvvizsgára/érettségire keress meg bátran!`
   },
+  
+  kata : {
+    name : "Csörgő Kata",
+    img : "woman.png",
+    id : "kata",
+    subjectName : "Matematika",
+    info : `Csörgő Kata vagyok, 2017-ben szereztem matematika-fizika szakos tanári diplomát az ELTE-én. Egyetemi éveim során a magántanításokon kívül több különböző intézményben tanítottam óraadóként, ahol általános iskolásokat, gimnazistákat, egyetemi hallgatókat, valamint külföldi hallgatókat is oktattam. 
+    Jelenleg matematika-fizika tanárként dolgozom fél státuszban, emellett gyakorlatot vezetek az ELTE-én, a fennmaradó energiáimat pedig szeretném a matematika és a fizika tantárgyak népszerűsítésére, közérthetőbbé varázslására, illetve az érdeklődő diákok segítésére fordítani. 
+    Eddigi tanítási tapasztalataim alapján egyértelműen azt gondolom, hogy „aki tényleg szeretné, annak sikerülni fog”. 😊
+    Csörgő Kata vagyok, 2017-ben szereztem matematika-fizika szakos tanári diplomát az ELTE-én. Egyetemi éveim során a magántanításokon kívül több különböző intézményben tanítottam óraadóként, ahol általános iskolásokat, gimnazistákat, egyetemi hallgatókat, valamint külföldi hallgatókat is oktattam. 
+    Jelenleg matematika-fizika tanárként dolgozom fél státuszban, emellett gyakorlatot vezetek az ELTE-én, a fennmaradó energiáimat pedig szeretném a matematika és a fizika tantárgyak népszerűsítésére, közérthetőbbé varázslására, illetve az érdeklődő diákok segítésére fordítani. 
+    Eddigi tanítási tapasztalataim alapján egyértelműen azt gondolom, hogy „aki tényleg szeretné, annak sikerülni fog”. 😊 `,
+  }
+  
+  
   
 }

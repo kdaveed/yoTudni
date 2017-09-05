@@ -1,8 +1,4 @@
 
-app.component("teacher", {
-	templateUrl : "teacher.html"
-})	
-
 app.component("divider", {
 	templateUrl : "divider.html"
 })
@@ -37,6 +33,7 @@ app.component("popup", {
      id : "<",
      content : "<",
      config : "<",
+     subject : "<",
    },
    templateUrl : "popup.html"
 })

@@ -2,7 +2,7 @@
   //
   position: absolute;
   width: 200px;
-  height: 100px;
+  height: 74px;
   float : left;
   margin: 15px;
   border-radius: 5px;
@@ -10,7 +10,7 @@
 
 .mosaikContainer {
   margin : 0 auto;
-  min-height: 390px;
+  min-height: 318px;
   width: 480px;
   text-align : justify;
 }

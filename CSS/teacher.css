@@ -2,9 +2,10 @@
 
 .teachTitle {
 	font-style : underline;
-	font-weight: 500;
-	font-size: 23px;
+	font-weight: 300;
+	font-size: 25px;
 	display: table;
+	margin-top: 10px;
 }
 
 .teacherCont {
@@ -49,15 +50,19 @@
 .teacherContainer{
 	width: 190px;
 	margin: 20px;
+	float: left;
 }
 
 
 .teachersContainer{
-  /* width: 400px; */
+  width: 462px;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  border: 1px solid;
 }
 
 .infoImg {
-  width: 30px;
+  width: 26px;
   margin-top: 10px;
   /* float: left; */
 }

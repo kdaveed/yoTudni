@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../CSS/teacher.css" type="text/css">
 <link rel="stylesheet" href="../CSS/text.css" type="text/css">
 
-<script src="../JS/subjectData.js"></script>
+<script src="../JS/pageData.js"></script>
 <script src="../JS/mosaikDescriptor.js"></script>
 <script src="../JS/jquery.js"></script>
 <script src="../JS/angular.min.js"></script>
@@ -33,18 +33,19 @@
 
 <body ng-app="myApp" class="bodyClass">
 
-  
   <script type="text/ng-template" id="popup.html">
   <div class="modal fade" id="{{$ctrl.id}}" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style=" background-color : {{$ctrl.subject.color}};">
+         <div class="modal-header">
+              <img src="../img/{{$ctrl.subject.imgName}}" 
+                    style="width : {{$ctrl.subject.width}}px;"> 
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
         <div class="modal-body">
           {{$ctrl.content}} 
           Something
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -56,11 +57,11 @@
       <img src="../img/teacher/{{$ctrl.teacher.img}}" class="teachImage">
       <div class="teachTitle mid"> {{$ctrl.teacher.name}} </div>
      <!-- <div class="mid"> {{$ctrl.teacher.subjectName}} </div> -->
-      <img src="../img/teacher/info.png" class="infoImg mid" data-toggle="modal" data-target="#myModal">
+      <img src="../img/teacher/info.png" class="infoImg mid" data-toggle="modal" data-target="#{{$ctrl.teacher.id}}">
       <div class="container">
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="{{$ctrl.teacher.id}}" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
@@ -136,7 +137,7 @@
 			<img src="../img/{{$ctrl.subject.imgName}}" class="middleImg" 
           style="width : {{$ctrl.subject.width}}px;"> 
 		</div>
-    <popup id="$ctrl.subject.index" content="$ctrl.subject.name"></popup>
+    <popup id="$ctrl.subject.index" content="$ctrl.subject.name" subject="$ctrl.subject"></popup>
   </script>
 
 	<script type="text/ng-template" id="selector.html">
@@ -179,22 +180,6 @@
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		</div>  
   </script>
-
-	<script type="text/ng-template" id="teacher.html">
-			<div class="middle">
-				<a id="tegla">
-					<div class="cent teachTitle"> Téglás Bence </div>
-					<div class="cent teacherCont">
-						<div class="teacherImgCont">
-							<img src="../img/teacher/tegla.jpg" class="teachImage"> 
-						</div>
-						<div class="teacherDsc">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						</div>
-					</div>
-				</a>
-			</div>
-		</script>
 
 	<script type="text/ng-template" id="divider.html">
 		<div class="100p grey">
@@ -264,14 +249,18 @@
       <destination name="'subjects'"></destination>  
 		  <mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
 		</div>	
-		<!-- 
+	
 		<color-divider></color-divider>
 		<div class="page blue">
 			<a id="teachers" class="teacherDest"></a>
 			<div class="teachersContainer mid">
 			 <teacher-profile teacher="teachers.tegla"></teacher-profile>
+			 <teacher-profile teacher="teachers.kata"></teacher-profile>
+			 <teacher-profile teacher="teachers.kata"></teacher-profile>
+       <teacher-profile teacher="teachers.tegla"></teacher-profile>
+			 
 			</div>
-		</div>  -->
+		</div> 
 		
 		<div class="page green">
 			<destination name="'gallery'"></destination>
