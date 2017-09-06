@@ -37,3 +37,23 @@ app.component("popup", {
    },
    templateUrl : "popup.html"
 })
+
+var MenuController = function($scope, $element, $attrs){
+  
+  $element.addClass('cont')
+  console.log('Data : ')
+  console.log(this)
+  console.log(this['data'])
+}
+
+app.component("menuItem", {
+  controller : MenuController,
+  bindings : { 
+    data : "<",
+    sg : "<"
+  },
+  templateUrl : "menu.html",
+  //controllerAs : "this"
+})
+
+

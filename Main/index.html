@@ -90,7 +90,20 @@
      <div class="pad {{$ctrl.data.color}}"> 
         <a href="#{{$ctrl.data.link}}">
           <div class="flex">
-            <div class="flexChild name"> {{$ctrl.data.text}} </div>
+            <div class="menuText flexChild name"> {{$ctrl.data.text}} </div>
+            <div class="mid">
+              <img src="../img/headerImg/{{$ctrl.data.imgUrl}}.png" class="navImg">
+            </div>  
+          </div>
+        </a>
+     </div>
+  </script>
+
+  <script type="text/ng-template" id="smallMenu.html">
+     <div class="pad {{$ctrl.data.color}}"> 
+        <a href="#{{$ctrl.data.link}}">
+          <div class="flex">
+            <div class="menuText flexChild name"> {{$ctrl.data.text}} </div>
             <img src="../img/headerImg/{{$ctrl.data.imgUrl}}.png" class="navImg">
           </div>
         </a>
@@ -203,18 +216,22 @@
 
 	<div ng-controller="simpleController">
 		<div class="yoTudniHeader">
-
 			<menu-item data="menu.gallery"></menu-item>
 			<menu-item data="menu.subjects"></menu-item>
 			<div class="cont red">
-				<a href="#intro"> <img src="../img/yoTudniLogoLight.png"
-					class="logoImg">
+				<a href="#intro"> 
+				  <img src="../img/yoTudniLogoLight.png" class="menuText logoImg">
+				  <img src="../img/home.png" class="yoImg">
 				</a>
 			</div>
 			<menu-item data="menu.teachers"></menu-item>
 			<menu-item data="menu.contact"></menu-item>
 		</div>
 		
+    <div class="smallHeader">
+      
+    </div>
+  
 		<div class="page firstPage red intro">
 			<destination name="'intro'"></destination>
 			<div class="mid">

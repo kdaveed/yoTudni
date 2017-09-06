@@ -6,20 +6,30 @@ $(document).on('click', 'a', function(event){
     }, 500);
 });
 
-$(window).on('resize', setPageWidth)
-
-var setPageWidth = function(){
-  
-  var totalWidth = 0;
-  $('.cont').each(function(index) {
-    totalWidth += parseInt($(this).width(), 10);
-   });
-  //console.log("Total : " + totalWidth)
-  $(".page").width(totalWidth)
+var smallMode = function(){
+  $(".menuText").hide()
+  $(".yoImg").show()
 }
 
+var largeMode = function(){
+  $(".menuText").show()
+  $(".yoImg").hide()
+}
+
+var setMode = function(){
+    
+  if($(document).width() < 990){
+    smallMode()
+  } else {
+    largeMode()
+  }
+}
+
+$(window).on('resize', setMode)
+
+
 $(document).ready(function(){
-  setPageWidth()
+  setMode()
 })
 
 var app = angular.module("myApp", [ "ngAnimate" ])
@@ -192,20 +202,4 @@ var app = angular.module("myApp", [ "ngAnimate" ])
     templateUrl : "destination.html"
   })
 	
-  var MenuController = function($scope, $element, $attrs){
-	  
-	  $element.addClass('cont')
-	  console.log('Data : ')
-	  console.log(this)
-	  console.log(this['data'])
-	}
-	
-  app.component("menuItem", {
-    controller : MenuController,
-    bindings : { 
-      data : "<",
-      sg : "<"
-    },
-   	templateUrl : "menu.html",
-    //controllerAs : "this"
-  })
+
