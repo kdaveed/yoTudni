@@ -47,7 +47,12 @@ var app = angular.module("myApp", [ "ngAnimate" ])
 		//Initialize 
 		$scope.showDsc = false;
 		$scope.subjectName = "matek";
-		
+
+		$scope.imgNum = []
+		for(var i = 1; i <= 10; i++){
+      $scope.imgNum.push(i)
+    }
+
 		$scope.color = "#FC5E5E"
 		$scope.secSelector = false;
 		$scope.current = "matek"
