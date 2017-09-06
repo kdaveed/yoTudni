@@ -7,11 +7,18 @@ app.component("colorDivider", {
 	templateUrl : "colorDivider.html"
 })
 
+var ImgComController = function($scope, $element, $attrs){
+  
+  $element.addClass('cont')
+}
+
+
 app.component("imgComp", {
 	bindings : {
 		name : "<"
 	},
 	templateUrl : "img.html",
+	controller : ImgComController,
 })
 
 

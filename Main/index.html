@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../CSS/main.css" type="text/css">
 <link rel="stylesheet" href="../CSS/mosaik.css" type="text/css">
 <link rel="stylesheet" href="../CSS/page.css" type="text/css">
+<link rel="stylesheet" href="../CSS/slideShow.css" type="text/css">
 <link rel="stylesheet" href="../CSS/teacher.css" type="text/css">
 <link rel="stylesheet" href="../CSS/text.css" type="text/css">
 
@@ -207,9 +208,9 @@
 
 	<script type="text/ng-template" id="img.html">
 		
-		<a href="../img/sample/{{$ctrl.name}}.jpg" data-lightbox="previewSet" data-title="Click"> 
+		<a href="../img/pics/{{$ctrl.name}}.jpg" data-lightbox="previewSet" data-title="Click"> 
 			<div class="floatLeft mar10">
-				 		<img src="../img/sample/{{$ctrl.name}}.jpg" height="130" width="auto">
+				 		<img src="../img/pics/{{$ctrl.name}}.jpg" height="130" width="auto">
 			</div>
 		</a>
     </script>
@@ -228,11 +229,7 @@
 			<menu-item data="menu.contact"></menu-item>
 		</div>
 		
-    <div class="smallHeader">
-      
-    </div>
-  
-		<div class="page firstPage red intro">
+    <div class="page firstPage red intro">
 			<destination name="'intro'"></destination>
 			<div class="mid">
 				<iframe class="mid" width="520" height="345"
@@ -280,13 +277,53 @@
 		</div> 
 		
 		<div class="page green">
+		<!--  
 			<destination name="'gallery'"></destination>
-			<div class="mid">Galéria</div>
 			<div class="mid">
-				<img-comp name="1"></img-comp>
-				<img-comp name="2"></img-comp>
-				<img-comp name="3"></img-comp>
+			  <img-comp name="1"></img-comp>
+			  <img-comp name="2"></img-comp>
+        <img-comp name="3"></img-comp>
+        <img-comp name="4"></img-comp>
+        <img-comp name="5"></img-comp>
+        <img-comp name="6"></img-comp>
+        <img-comp name="7"></img-comp>
+        <img-comp name="8"></img-comp>
+        <img-comp name="9"></img-comp>
+        <img-comp name="10"></img-comp>
+     </div>
+		-->
+		<div class="slideshow-container">
+      <destination name="'gallery'"></destination>
+			<div class="mySlides fade1">
+			  <div class="numbertext">1 / 3</div>
+			  <img src="../img/pics/1.jpg" style="width:100%">
+			  <div class="text">Caption Text</div>
 			</div>
+			
+			<div class="mySlides fade1">
+			  <div class="numbertext">2 / 3</div>
+			  <img src="../img/pics/2.jpg" style="width:100%">
+			  <div class="text">Caption Two</div>
+			</div>
+			
+			<div class="mySlides fade1">
+			  <div class="numbertext">3 / 3</div>
+			  <img src="../img/pics/3.jpg" style="width:100%">
+			  <div class="text">Caption Three</div>
+			</div>
+			
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+			
+			</div>
+			<br>
+			
+			<div style="text-align:center">
+			  <span class="dot" onclick="currentSlide(1)"></span> 
+			  <span class="dot" onclick="currentSlide(2)"></span> 
+			  <span class="dot" onclick="currentSlide(3)"></span> 
+			</div>
+		  
 		</div>
 
 		<div class="page purple">
@@ -296,7 +333,36 @@
 			 </div>
 		</div>
 	</div>
-
+  
+<script>
+			var slideIndex = 1;
+			showSlides(slideIndex);
+			
+			function plusSlides(n) {
+			  showSlides(slideIndex += n);
+			}
+			
+			function currentSlide(n) {
+			  showSlides(slideIndex = n);
+			}
+			
+			function showSlides(n) {
+			  var i;
+			  var slides = document.getElementsByClassName("mySlides");
+			  var dots = document.getElementsByClassName("dot");
+			  if (n > slides.length) {slideIndex = 1}    
+			  if (n < 1) {slideIndex = slides.length}
+			  for (i = 0; i < slides.length; i++) {
+			      slides[i].style.display = "none";  
+			  }
+			  for (i = 0; i < dots.length; i++) {
+			      dots[i].className = dots[i].className.replace(" active", "");
+			  }
+			  slides[slideIndex-1].style.display = "block";  
+			  dots[slideIndex-1].className += " active";
+			}
+</script>
+  
 	<script src="../JS/main.js"></script>
 	<script src="../JS/templates.js"></script>
 	<script src="../JS/lightbox.js"></script>

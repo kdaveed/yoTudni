@@ -12,6 +12,7 @@
 .mid {
 	margin : 0 auto;
 	display : table;
+	/* width: auto; */
 }
 
 .cent {
