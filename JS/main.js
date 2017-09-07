@@ -1,5 +1,5 @@
 $(document).on('click', 'span', function(event){
-    
+
     event.preventDefault();
     if($.attr(this, 'id') !== undefined){
       $('html, body').animate({
