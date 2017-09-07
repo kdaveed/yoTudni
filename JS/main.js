@@ -1,9 +1,13 @@
 $(document).on('click', 'a', function(event){
     event.preventDefault();
-
-    $('html, body').animate({
+    
+    if($.attr(this, 'href').indexOf("//") == -1 ){
+      $('html, body').animate({
         scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 500);
+      }, 500);
+    } else {
+      window.location.href = $.attr(this, 'href')
+    }
 });
 
 var smallMode = function(){
