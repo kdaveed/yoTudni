@@ -34,6 +34,8 @@ $(window).on('resize', setMode)
 
 $(document).ready(function(){
   setMode()
+  $('[data-toggle="popover1"]').popover();   
+  $('[data-toggle="popover2"]').popover();   
 })
 
 var app = angular.module("myApp", [ "ngAnimate" ])
