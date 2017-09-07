@@ -1,12 +1,10 @@
-$(document).on('click', 'a', function(event){
-    event.preventDefault();
+$(document).on('click', 'span', function(event){
     
-    if($.attr(this, 'href').indexOf("//") == -1 ){
+    event.preventDefault();
+    if($.attr(this, 'id') !== undefined){
       $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
+        scrollTop: $( $.attr(this, 'id') ).offset().top
       }, 500);
-    } else {
-      window.location.href = $.attr(this, 'href')
     }
 });
 

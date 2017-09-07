@@ -108,14 +108,14 @@
 
 	<script type="text/ng-template" id="menu.html">
      <div class="pad {{$ctrl.data.color}}"> 
-        <a href="#{{$ctrl.data.link}}">
+        <span id="#{{$ctrl.data.link}}">
           <div class="flex">
             <div class="menuText flexChild name"> {{$ctrl.data.text}} </div>
             <div class="mid">
               <img src="../img/headerImg/{{$ctrl.data.imgUrl}}.png" class="navImg">
             </div>  
           </div>
-        </a>
+        </span>
      </div>
   </script>
 
@@ -239,7 +239,7 @@
 			<menu-item data="menu.gallery"></menu-item>
 			<menu-item data="menu.subjects"></menu-item>
 			<div class="cont red">
-				<a href="#intro"> 
+				<span id="#intro"> 
 				  <img src="../img/yoTudniLogoLight.png" class="menuText logoImg">
 				  <img src="../img/home.png" class="yoImg">
 				</a>
@@ -281,7 +281,7 @@
 	  <div class="page yel padY">
       <destination name="'subjects'"></destination>  
 		  <mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
-		</div>	
+		</div>
 	
 		<color-divider></color-divider>
 		<div class="page blue">
@@ -302,7 +302,7 @@
 		<div class="page purple">
 		   <destination name="'contact'"></destination>
 		   <div class="mid">
-		      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9li_m1m_PuqraZJTm8Rs2jtMkOmsDhuUEOWyhyS4cvYsAyw/viewform?c=0&w=1">
+		      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9li_m1m_PuqraZJTm8Rs2jtMkOmsDhuUEOWyhyS4cvYsAyw/viewform?c=0&w=1" target="_blank">
 		        <div class="application">
 		          Jelentkezés
 		        </div>
@@ -313,17 +313,17 @@
 	     </div>
 	     <div class="mid linkContainer">
 	       <div class="floatLeft">
-		       <a href="https://www.facebook.com/yotudni/">
+		       <a href="https://www.facebook.com/yotudni/" target="_blank">
 		          <img src="../img/contact/facebook.png" class="contButton">
 	         </a>
          </div>
          <div class="floatLeft">
-           <a href="/" data-toggle="popover1" data-trigger="focus" data-content="yotudni@gmail.com">
+           <a href="" data-toggle="popover1" data-trigger="focus" data-content="yotudni@gmail.com">
 	            <img src="../img/contact/mail.png" class="contButton">
 	         </a>
 	       </div>
 	       <div class="floatLeft">
-	         <a href="/" data-toggle="popover2" data-trigger="focus" data-content="+36 70 392 8832">
+	         <a href="" data-toggle="popover2" data-trigger="focus" data-content="+36 70 392 8832">
              <img src="../img/contact/phone.png" class="contButton">
            </a>
 	       </div>
