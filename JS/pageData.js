@@ -53,7 +53,7 @@ var subjectList = [
     shown :  true,
     width : 107,
     groups : [{
-      teacher : "Teglas Bence",
+      teacher : "Téglás Bence",
       appointments : [{
         day : "Hétfő",
         time : "17:30 - 19:30",

@@ -65,3 +65,15 @@
   margin-top: 10px;
   /* float: left; */
 }
+
+
+.teacherName {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.groupTitle{
+	display: table;
+	margin-bottom: 5px;
+	border-bottom: 1px solid black;
+}
