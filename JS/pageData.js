@@ -9,6 +9,7 @@ var subjectData = {
 		teacher : "A",
 		shown :  true,
     width : 30,
+    
 	},
 
 	biologia : {
@@ -51,6 +52,21 @@ var subjectList = [
     teacher : "B",
     shown :  true,
     width : 107,
+    groups : [{
+      teacher : "Teglas Bence",
+      appointments : [{
+        day : "Hétfő",
+        time : "17:30 - 19:30",
+      },{
+        day : "Csütörtök",
+        time : "16:00 - 18:00",
+      }]},{
+      teacher : "Teglas Bence",
+      appointments : [{
+        day : "Szombat",
+        time : "10:00-14:00",
+      }]}
+    ]
   },{
     imgName : "kemia.png",
     color : "#00A8C5",
@@ -59,6 +75,21 @@ var subjectList = [
     teacher : "C",
     shown :  true,
     width : 72,
+    groups : [{
+      teacher : "Vörös Éva",
+      appointments : [{
+        day : "Kedd",
+        time : "16:00 - 18:00",
+      },{
+        day : "Csütörtök",
+        time : "18:00 - 20:00",
+      }]},{
+      teacher : "Vörös Éva",
+      appointments : [{
+        day : "Szombat",
+        time : "10:00-14:00",
+      }]}
+    ]
   }, {
     imgName : "fizika.png",
     color : "#00A8C5",
@@ -67,6 +98,15 @@ var subjectList = [
     teacher : "D",
     shown :  true,
     width : 80,
+    groups : [{
+      teacher : "Vörös Éva",
+      appointments : [{
+        day : "Hétfő",
+        time : "17:30 - 19:30",
+      },{
+        day : "Szerda",
+        time : "15:30 - 17:30",
+      }]}]
   }, {
 			imgName : "matek.png",
 			color : "#FC5E5E",
@@ -75,7 +115,13 @@ var subjectList = [
 			teacher : "A",
 			shown :  true,
 			width : 72,
-	}, {
+		  groups : [{
+      teacher : "Vörös Éva",
+      appointments : [{
+        day : "Szombat",
+        time : "10:00 - 13:00, 15:30-17:30",
+      }]}]
+  }, {
 		imgName : "angol.png",
 		color : "#FC5E5E",
     index : 5,
@@ -83,6 +129,15 @@ var subjectList = [
     teacher : "A",
     shown :  true,
     width : 82,
+    groups : [{
+      teacher : "Teglas Bence",
+      appointments : [{
+        day : "Kedd",
+        time : "17:00 - 19:00",
+      },{
+        day : "Péntek",
+        time : "17:00 - 19:00",
+      }]}]
   }, {
     imgName : "foldrajz.png",
     color : "#83CB89",
@@ -91,6 +146,15 @@ var subjectList = [
     teacher : "A",
     shown :  true,
     width : 122,
+    groups : [{
+      teacher : "Kovács Dániel",
+      appointments : [{
+        day : "Kedd",
+        time : "16:00 - 18:00",
+      },{
+        day : "Csütörtök",
+        time : "16:00 - 18:00",
+      }]}]
   }]
 
 var menu = {
