@@ -61,10 +61,10 @@ var subjectList = [
         day : "Csütörtök",
         time : "16:00 - 18:00",
       }]},{
-      teacher : "Teglas Bence",
+      teacher : "Téglás Bence",
       appointments : [{
         day : "Szombat",
-        time : "10:00-14:00",
+        time : "10:00 - 14:00",
       }]}
     ]
   },{
@@ -87,7 +87,7 @@ var subjectList = [
       teacher : "Vörös Éva",
       appointments : [{
         day : "Szombat",
-        time : "10:00-14:00",
+        time : "10:00 - 14:00",
       }]}
     ]
   }, {
@@ -119,7 +119,7 @@ var subjectList = [
       teacher : "Vörös Éva",
       appointments : [{
         day : "Szombat",
-        time : "10:00 - 13:00, 15:30-17:30",
+        time : "10:00 - 13:00, 15:30 - 17:30",
       }]}]
   }, {
 		imgName : "angol.png",
@@ -130,7 +130,7 @@ var subjectList = [
     shown :  true,
     width : 82,
     groups : [{
-      teacher : "Teglas Bence",
+      teacher : "Téglás Bence",
       appointments : [{
         day : "Kedd",
         time : "17:00 - 19:00",

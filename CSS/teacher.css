@@ -16,9 +16,10 @@
 }
 
 .teachImage {
-	width: 180px;
+	/* width: auto; */
+	height: 200px;
 	border : 5px solid #CACFD2;
-	border-radius: 100px;
+	border-radius: 93px;
 }
 
 .teacherCont > div{
@@ -76,4 +77,8 @@
 	display: table;
 	margin-bottom: 5px;
 	border-bottom: 1px solid black;
+}
+
+.teacherHeader{
+	border-bottom: 1px solid black!important;
 }
