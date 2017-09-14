@@ -249,5 +249,4 @@ var teachers = {
             Diákjaim visszajelzései alapján az óráim barátságos hangulatban telnek, ami viszont nem megy a minőség rovására. Ezt támasztja alá, hogy diákjaim jelentős része ajánlás útján került hozzám, illetve minden egyes tanítványom elérte azokat a céljait, ami miatt a csoportomba vagy magán órámra járt. 
             Ha egy szakmailag kifogástalan, de mégis fiatalos légkörben szeretnél felkészülni közép vagy emelt szintű matematika érettségidre, akkor keress bátran és várlak a Yo tudni! előkészítő számodra megfelelő csoportjában.`, 
   }
-  
 }
