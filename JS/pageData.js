@@ -147,7 +147,7 @@ var teachers = {
   
   kata : {
     name : "Csörgő Kata",
-    img : "woman.png",
+    img : "kata.png",
     id : "kata",
     subjectName : "Matematika",
     info : `Csörgő Kata vagyok, 2017-ben szereztem matematika-fizika szakos tanári diplomát az ELTE-én. Egyetemi éveim során a magántanításokon kívül több különböző intézményben tanítottam óraadóként, ahol általános iskolásokat, gimnazistákat, egyetemi hallgatókat, valamint külföldi hallgatókat is oktattam. 
@@ -160,7 +160,7 @@ var teachers = {
   
   eva : {
     name : "Vörös Éva",
-    img : "woman.png",
+    img : "eva.jpg",
     id : "eva",
     subjectName : "Kémia",
     info :  `Mindig is tanár akartam lenni. 2011. óta foglalkozom korrepetálással és érettségire felkészítéssel. Több volt tanítványom orvosi és gyógyszerészeti szakokra jár. 2016-ban kitűnő alapképzési diplomát szereztem, ezután jelentkeztem tanári mesterképzésre, ahol most végzős hallgató vagyok. Jelenlegi TDK kutatásom témája, hogy miért nem szeretik az emberek a kémiát.Mindig is tanár akartam lenni. 2011. óta foglalkozom korrepetálással és érettségire felkészítéssel. Több volt tanítványom orvosi és gyógyszerészeti szakokra jár. 2016-ban kitűnő alapképzési diplomát szereztem, ezután jelentkeztem tanári mesterképzésre, ahol most végzős hallgató vagyok. Jelenlegi TDK kutatásom témája, hogy miért nem szeretik az emberek a kémiát.`,
@@ -168,7 +168,7 @@ var teachers = {
   
   daniel : {
     name : "Kovács Dániel",
-    img : "man.png",
+    img : "daniel.jpg",
     id : "daniel",
     subjectName : "Földrajz",
     info :  `Kovács Dániel vagyok, földrajz-biológia szakos tanár, az utolsó félévemet taposom az ELTE-n. A földrajz már általános iskolás korom óta a szerelmem, azóta több földrajzi versenyen vettem részt és tagja vagyok a Magyar Földrajzi Társaságnak. Jelenleg a Társadalom- és Gazdaságföldrajzi tanszéken szakdolgozom geopolitikai témában, ezen kívül az energiagazdálkodás és a biogeográfia a szakterületem. Ha úgy érzed, hogy van mit frissíteni vagy fejleszteni a földrajz tudásodon érettségi előtt vagy csak hasznos infókkal akarod feltölteni magad a nagy megmérettetés előtt, akkor itt a helyed! A folyamatos számonkérésekkel és ismétlésekkel naprakész és használható tudást kapsz. A kis létszámú csoportokban laza, jófej hangulatban, mégis érthetően, megjegyezhetően beszélünk át mindent, ami földrajz!
@@ -177,7 +177,7 @@ var teachers = {
   
   marton : {
     name : "Szittya Márton",
-    img : "man.png",
+    img : "marton.jpeg",
     id : "marton",
     subjectName : "Matematika",
     info : `Végzettségemet tekintve, 2007-ben emelt szintű matematika érettségin 99%-ot értem el, miután a Budapesti Corvinus Egyetemen (BCE) folytattam felsőfokú tanulmányaimat, ahol 2012-ben Pénzügy és Számvitel alapszakon, és 2015-ben Vállalkozásfejlesztés mesterszakon szereztem diplomát. 
