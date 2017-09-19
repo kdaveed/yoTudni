@@ -11,14 +11,29 @@
 }
 
 .szint{
-	
+	width: fit-content;
+	/* margin: 0 auto; */
+	font-weight: 900;
 }
 
 .szintInfo{
 	margin: 5px 15px;
+	width: fit-content;
 }
 
 .priceInfo{
 	 height: 18px;
    margin: 5px 10px;
+}
+
+.inf{
+	margin: 3px;
+}
+
+.pricesAndInfosHeader{
+	font-size: 20px;
+}
+
+.pricesAndInfosHeaderCont{
+	
 }

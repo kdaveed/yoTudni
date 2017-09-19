@@ -3,6 +3,10 @@
 	float : left;
 }
 
+.floatRight {
+  float : right;
+}
+
 .middle {
 	margin : 0 auto;
 	width : 580px;

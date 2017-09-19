@@ -67,7 +67,7 @@
         <div class="modal-body">
           <div class="flex">
                   <div> Tanár -  </div>
-                  <div class="teacherName"> {{$ctrl.subject.teacher}} </div>
+                  <div class="teacherName" data-dismiss="modal" ng-click="$ctrl.changeModal()"> {{$ctrl.subject.teacher}} </div>
           </div>
           <div class="groupContainer" ng-repeat="group in $ctrl.subject.groups">
               <div class="groupTitle"> {{$index + 1}}. csoport</div>
@@ -296,27 +296,30 @@
         <div class="modal fade" id="arakInfok" role="dialog">
 			    <div class="modal-dialog">
 			      <!-- Modal content-->
-			      <div class="modal-content" style=" background-color : {{$ctrl.subject.color}};">
+			      <div class="modal-content" class="pricesAndInfosHeaderCont">
 			        <div class="modal-header teacherHeader">
-			              <img src="../img/{{$ctrl.subject.imgName}}" 
-			                    style="width : {{$ctrl.subject.width}}px;"> 
-			              <button type="button" class="close" data-dismiss="modal">&times;</button>
+			              <div class="floatLeft pricesAndInfosHeader">
+			                Árak és információk
+                    </div>
+                    <div class="floatRight">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 			        </div>
 			        <div class="modal-body">
 			          <div class="middle">
-			             Kezdés : Október 9. Hétfő
+			             <b>Kezdés</b> : Október 9. Hétfő
 			          </div>
-			          <div class="szint">Közép szint</div>
+			          <div class="szint">Közép szint:</div>
 			          <div class="szintInfo">
 			             <div class="inf"> Óraszám : 3 óra/hét</div>
 			             <div class="inf"> Időtartam : 20 hét (Április 14-ig) </div>
-			             <div class="inf"> Ár : 54 000 FT  
+			             <div class="inf"> Ár: 54 000 FT  
 				             <a href="" data-toggle="popover1" data-trigger="focus" data-content="Október 9. után 60 000 FT">
 					              <img src="../img/teacher/info.png" class="priceInfo">
 					           </a>
 			             </div>
 			          </div>
-			          <div class="szint">Emelt szint</div>
+			          <div class="szint">Emelt szint:</div>
 			          <div class="szintInfo">
                    <div class="inf"> Óraszám : 4 óra/hét</div>
                    <div class="inf"> Időtartam : 22 hét (Április 28-ig) </div>

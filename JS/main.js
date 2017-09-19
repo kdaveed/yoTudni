@@ -8,6 +8,17 @@ $(document).on('click', 'span', function(event){
     }
 });
 
+
+var changeModal = function(){
+  
+  $('html, body').animate({
+    scrollTop: $('teachers').offset().top
+  }, 500, function(){
+    $('#tegla').modal('show');
+  });
+  
+}
+
 var smallMode = function(){
   $(".menuText").hide()
   $(".yoImg").show()

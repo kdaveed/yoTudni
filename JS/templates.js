@@ -34,6 +34,19 @@ app.component("teacherProfile", {
    controller : TeacherController,
 })
 
+var PopupController = function(){
+  
+  this.changeModal = function(){
+    
+    console.log("changeModal")
+    $('html, body').animate({
+      scrollTop: $('#teachers').offset().top
+    }, 500, function(){
+      $('#tegla').modal('show');
+    });
+  }
+}
+
 
 app.component("popup", {
    bindings : {
@@ -42,7 +55,8 @@ app.component("popup", {
      config : "<",
      subject : "<",
    },
-   templateUrl : "popup.html"
+   templateUrl : "popup.html",
+   controller : PopupController,
 })
 
 var MenuController = function($scope, $element, $attrs){
