@@ -51,7 +51,7 @@ var subjectList = [
     name : "biologia",
     shown :  true,
     width : 107,
-    teacher : "Téglás Bence",
+    teacher : [{name: "Téglás Bence", id : "#tegla"}],
     groups : [{
       teacher : "Téglás Bence",
       appointments : [{
@@ -74,7 +74,7 @@ var subjectList = [
     name : "kemia",
     shown :  true,
     width : 72,
-    teacher : "Vörös Éva",
+    teacher : [{name: "Vörös Éva", id : "#eva"}],
     groups : [{
       appointments : [{
         day : "Kedd",
@@ -96,7 +96,7 @@ var subjectList = [
     name : "fizika",
     shown :  true,
     width : 80,
-    teacher : "Csörgő Kata",
+    teacher : [{name: "Csörgő Kata", id : "#kata"}],
     groups : [{
       appointments : [{
         day : "Hétfő",
@@ -113,6 +113,10 @@ var subjectList = [
 			shown :  true,
 			width : 72,
       teacher : "Csörgő Kata, Szittya Márton",
+      teacher : [
+          {name: "Csörgő Kata", id : "#kata"},
+          {name: "Szittya Márton", id : "#marton"}
+        ],
       groups : [{
         appointments : [{
           day : "Hétfő",
@@ -139,7 +143,7 @@ var subjectList = [
     teacher : "A",
     shown :  true,
     width : 82,
-    teacher : "Téglás Bence",
+    teacher : [{name: "Téglás Bence", id : "#tegla"}],
     groups : [{
       teacher : "Téglás Bence",
       appointments : [{

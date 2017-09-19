@@ -67,7 +67,9 @@
         <div class="modal-body">
           <div class="flex">
                   <div> Tanár -  </div>
-                  <div class="teacherName" data-dismiss="modal" ng-click="$ctrl.changeModal()"> {{$ctrl.subject.teacher}} </div>
+                  <div class="teacherName" ng-repeat="teacher in $ctrl.subject.teacher" 
+                      data-dismiss="modal"
+                      ng-click="$ctrl.changeModal(teacher.id)"> {{teacher.name}} </div>
           </div>
           <div class="groupContainer" ng-repeat="group in $ctrl.subject.groups">
               <div class="groupTitle"> {{$index + 1}}. csoport</div>

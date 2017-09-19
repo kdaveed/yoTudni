@@ -36,13 +36,12 @@ app.component("teacherProfile", {
 
 var PopupController = function(){
   
-  this.changeModal = function(){
+  this.changeModal = function(id){
     
-    console.log("changeModal")
     $('html, body').animate({
-      scrollTop: $('#teachers').offset().top
+      scrollTop: $("#teachers").offset().top
     }, 500, function(){
-      $('#tegla').modal('show');
+      $(id).modal('show');
     });
   }
 }
