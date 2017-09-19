@@ -1,0 +1,24 @@
+.price {
+	font-size: 35px;
+	font-style: italic;
+	text-align: center;
+	padding: 15px;
+}
+
+.price:hover{
+	text-decoration : underline;
+	cursor : pointer;
+}
+
+.szint{
+	
+}
+
+.szintInfo{
+	margin: 5px 15px;
+}
+
+.priceInfo{
+	 height: 18px;
+   margin: 5px 10px;
+}

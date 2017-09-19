@@ -49,9 +49,9 @@ var subjectList = [
     color : "#83CB89",
     index : 1,
     name : "biologia",
-    teacher : "B",
     shown :  true,
     width : 107,
+    teacher : "Téglás Bence",
     groups : [{
       teacher : "Téglás Bence",
       appointments : [{
@@ -72,11 +72,10 @@ var subjectList = [
     color : "#00A8C5",
     index : 2,
     name : "kemia",
-    teacher : "C",
     shown :  true,
     width : 72,
+    teacher : "Vörös Éva",
     groups : [{
-      teacher : "Vörös Éva",
       appointments : [{
         day : "Kedd",
         time : "16:00 - 18:00",
@@ -95,11 +94,10 @@ var subjectList = [
     color : "#00A8C5",
     index : 3,
     name : "fizika",
-    teacher : "D",
     shown :  true,
     width : 80,
+    teacher : "Csörgő Kata",
     groups : [{
-      teacher : "Vörös Éva",
       appointments : [{
         day : "Hétfő",
         time : "17:30 - 19:30",
@@ -108,19 +106,31 @@ var subjectList = [
         time : "15:30 - 17:30",
       }]}]
   }, {
-			imgName : "matek.png",
+    	imgName : "matek.png",
 			color : "#FC5E5E",
 			index : 4,
 			name : "matek",
-			teacher : "A",
 			shown :  true,
 			width : 72,
-		  groups : [{
-      teacher : "Vörös Éva",
+      teacher : "Csörgő Kata, Szittya Márton",
+      groups : [{
+        appointments : [{
+          day : "Hétfő",
+          time : "17:30 - 19:30",
+        },{
+          day : "Szerda",
+          time : "15:30 - 17:30",
+        }]}, {
       appointments : [{
         day : "Szombat",
-        time : "10:00 - 13:00, 15:30 - 17:30",
-      }]}]
+        time : "10:00 - 13:00",
+      }]}, {
+      appointments : [{
+          note : "Középszintű",
+          day : "Szombat",
+          time : "13:30 - 17:30",
+        }]
+      }] 
   }, {
 		imgName : "angol.png",
 		color : "#FC5E5E",
@@ -129,6 +139,7 @@ var subjectList = [
     teacher : "A",
     shown :  true,
     width : 82,
+    teacher : "Téglás Bence",
     groups : [{
       teacher : "Téglás Bence",
       appointments : [{
@@ -146,6 +157,7 @@ var subjectList = [
     teacher : "A",
     shown :  true,
     width : 122,
+    teacher : "Kovács Dániel",
     groups : [{
       teacher : "Kovács Dániel",
       appointments : [{
