@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<meta charset="UTF-8">
+<head>
+
+<link rel="stylesheet" href="CSS/header.css" type="text/css">
+<link rel="stylesheet" href="CSS/img.css" type="text/css">
+<link rel="stylesheet" href="CSS/intro.css" type="text/css">
+<link rel="stylesheet" href="CSS/kontakt.css" type="text/css">
+<link rel="stylesheet" href="CSS/lib.css" type="text/css">
+<link rel="stylesheet" href="CSS/lightbox.css" type="text/css">
+<link rel="stylesheet" href="CSS/main.css" type="text/css">
+<link rel="stylesheet" href="CSS/mosaik.css" type="text/css">
+<link rel="stylesheet" href="CSS/page.css" type="text/css">
+<link rel="stylesheet" href="CSS/slideShow.css" type="text/css">
+<link rel="stylesheet" href="CSS/teacher.css" type="text/css">
+<link rel="stylesheet" href="CSS/text.css" type="text/css">
+
+<script src="JS/pageData.js"></script>
+<script src="JS/mosaikDescriptor.js"></script>
+<script src="JS/jquery.js"></script>
+<script src="JS/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.js"></script>
+<script src="JS/util.js"></script>
+
+<script src="JS/template/menu.js" type="text/ng-template"
+	id="menu.html"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" class="bodyClass">
+
+  <script type="text/ng-template" id="gallery.html">
+  
+    <div class="slideshow-container">
+
+      <destination name="'gallery'"></destination>
+      <div class="mySlides fade1" ng-repeat="i in $ctrl.num">
+        <img src="img/pics/{{i}}.JPG" style="width:100%">
+      </div>
+      <div class="prev" ng-click="$ctrl.prev()">&#10094;</div>
+      <div class="next" ng-click="$ctrl.next()">&#10095;</div>
+
+      <br>
+      <div style="text-align:center">
+        <span class="dot" ng-repeat="i in $ctrl.num" ng-click="$ctrl.currentSlide(i)"></span>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="popup.html">
+  <div class="modal fade" id="{{$ctrl.id}}" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content" style=" background-color : {{$ctrl.subject.color}};">
+         <div class="modal-header teacherHeader">
+              <img src="img/{{$ctrl.subject.imgName}}" 
+                    style="width : {{$ctrl.subject.width}}px;"> 
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="flex">
+                  <div> Tanár -  </div>
+                  <div class="teacherName" ng-repeat="teacher in $ctrl.subject.teacher" 
+                      data-dismiss="modal"
+                      ng-click="$ctrl.changeModal(teacher.id)"> {{teacher.name}} </div>
+          </div>
+          <div class="groupContainer" ng-repeat="group in $ctrl.subject.groups">
+              <div class="groupTitle"> {{$index + 1}}. csoport</div>
+              
+              <div> Időpontok: </div>
+                  <ul>
+                    <li ng-repeat="app in group.appointments">
+                      {{app.day}}: {{app.time}}
+                    </li>
+                  </ul>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </script>
+
+	<script type="text/ng-template" id="teacherProfile.html">
+    <div class="teacherContainer">
+      <img src="img/teacher/{{$ctrl.teacher.img}}" class="teachImage">
+      <div class="teachTitle mid"> {{$ctrl.teacher.name}} </div>
+     <!-- <div class="mid"> {{$ctrl.teacher.subjectName}} </div> -->
+      <img src="img/teacher/info.png" class="infoImg mid" data-toggle="modal" data-target="#{{$ctrl.teacher.id}}">
+      <div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="{{$ctrl.teacher.id}}" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body teacherInfo just">
+          {{$ctrl.teacher.info}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   </div>
+  </script>
+
+	<script type="text/ng-template" id="nav.html">
+     <div class="">
+      <a id="{{$ctrl.name}}" class="destination"></a>
+     </div>
+  </script>
+
+	<script type="text/ng-template" id="menu.html">
+     <div class="pad {{$ctrl.data.color}}"> 
+        <span id="#{{$ctrl.data.link}}">
+          <div class="flex">
+            <div class="menuText flexChild name"> {{$ctrl.data.text}} </div>
+            <div class="mid">
+              <img src="img/headerImg/{{$ctrl.data.imgUrl}}.png" class="navImg">
+            </div>  
+          </div>
+        </span>
+     </div>
+  </script>
+
+  <script type="text/ng-template" id="smallMenu.html">
+     <div class="pad {{$ctrl.data.color}}"> 
+        <a href="#{{$ctrl.data.link}}">
+          <div class="flex">
+            <div class="menuText flexChild name"> {{$ctrl.data.text}} </div>
+            <img src="img/headerImg/{{$ctrl.data.imgUrl}}.png" class="navImg">
+          </div>
+        </a>
+     </div>
+  </script>
+
+	<script type="text/ng-template" id="destination.html">
+    <a id="{{$ctrl.name}}" class="destination"></a>
+  </script>
+
+	<script type="text/ng-template" id="mosaikList.html">
+  
+		<div class="mosaikContainer sample-show-hide" ng-show="$ctrl.mosaik1">
+			<mosaik ng-repeat="subject in $ctrl.subjects" 
+				mosaik="$ctrl.mosaik" 
+				subject="subject" 
+				hide-elements="$ctrl.hideOnes(subject)">
+			</mosaik>
+
+		</div>
+		<div class="middle animate-show-hide" ng-show="!$ctrl.mosaik"> 
+				<subject-description
+					show-content="!$ctrl.mosaik"
+					current-subject="$ctrl.currentSubject">
+				</subject-description>
+		</div>
+		<div class="selectorContainer animate-show-hide" ng-show="!$ctrl.mosaik">
+				<selector 
+					ng-repeat="subject in $ctrl.subjects"
+					subject="subject"
+					select="$ctrl.showSubject(subject)">
+				</selector>	
+				<span class="stretch"></span>
+		</div>	
+	</script>
+
+	<!-- Template -->
+	<script type="text/ng-template" id="mosaik.html">
+		<div class="mosaik sample-show-hide"
+			style="	background-color : {{$ctrl.subject.color}};
+					left : {{$ctrl.subject.coords.left}}px;
+					top : {{$ctrl.subject.coords.top}}px;"
+			ng-click="$ctrl.click($ctrl.subject)">
+			<img src="img/{{$ctrl.subject.imgName}}" class="middleImg" 
+          style="width : {{$ctrl.subject.width}}px;"> 
+		</div>
+    <popup id="$ctrl.subject.index" content="$ctrl.subject.name" subject="$ctrl.subject"></popup>
+  </script>
+
+	<script type="text/ng-template" id="selector.html">
+		<div
+			ng-class="{ selectedSubject : $ctrl.subject.shown }"
+			style="	background-color : {{$ctrl.subject.color}};"
+			ng-click="$ctrl.click()">
+			<img src="img/{{$ctrl.subject.imgName}}" class = "middleImg secondaryImage"> 
+		</div>	
+	</script>
+
+	<script type="text/ng-template" id="subjectDescription.html">
+		<div class="subjectDescription" 
+			style="background-color : {{$ctrl.currentSubject.color}}; ">
+			<div ng-switch="$ctrl.currentSubject.name">
+				<div ng-switch-when="matek"> <math-description subject="$ctrl.currentSubject"></math-description></div>
+				<div ng-switch-when="biologia"> <biology-description subject="$ctrl.currentSubject"></biology-description></div>
+				<div ng-switch-default> <general-description></general-description></div>
+			</div> 	
+		</div>
+  </script>
+
+	<script type="text/ng-template" id="mathDescription.html">
+		<div class="justify pad10">
+			Matek <br>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="biologyDescription.html">
+		<div class="justify pad10">
+			Biosz <br>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Tanár : <a href="#tegla"> Tegla </a>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="generalDescription.html">
+		<div class="justify pad10">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>  
+  </script>
+
+	<script type="text/ng-template" id="divider.html">
+		<div class="100p grey">
+			<div class="lines"></div>
+		</div>
+    </script>
+
+	<script type="text/ng-template" id="colorDivider.html">
+		<div class="100p_ height20_ grey_ colorDivider">
+		</div>
+   </script>
+
+	<script type="text/ng-template" id="img.html">
+		
+		<a href="img/pics/{{$ctrl.name}}.jpg" data-lightbox="previewSet" data-title="Click"> 
+			<div class="floatLeft mar10">
+				 		<img src="img/pics/{{$ctrl.name}}.jpg" height="130" width="auto">
+			</div>
+		</a>
+    </script>
+
+	<div ng-controller="simpleController">
+		<div class="yoTudniHeader">
+			<menu-item data="menu.gallery"></menu-item>
+			<menu-item data="menu.subjects"></menu-item>
+			<div class="cont red">
+				<span id="#intro"> 
+				  <img src="img/yoTudniLogoLight.png" class="menuText logoImg">
+				  <img src="img/home.png" class="yoImg">
+				</a>
+			</div>
+			<menu-item data="menu.teachers"></menu-item>
+			<menu-item data="menu.contact"></menu-item>
+		</div>
+		
+    <div class="page firstPage red intro">
+			<destination name="'intro'"></destination>
+			<div class="mid">
+				<iframe class="mid" width="520" height="345"
+					src="https://www.youtube.com/embed/y6iROW3zm6M"> </iframe>
+			</div>
+			<div class="middle mar20 just">A Yo tudni! egy teljesen
+				egyedülálló érettségi előkészítő. Csoportjaink a lehető legkisebb
+				létszámban (3-7) fő indulnak csak el, hogy a lehető legtöbb
+				személyes figyelmet fordíthassuk diákjainkra. Tanáraink egytől
+				egyig az adott tantárgyat kiemelkedően magas fokon ismerő, nagy
+				tapasztalattal rendelkező fiatalok, akik jól ismerik az iskolapad
+				nehézségeit. Közvetlen hangvételű óráinkon igyekszünk messze
+				elrugaszkodni a klasszikus frontális oktatás hátrányaitól és
+				diákjaink kíváncsiságát felkeltve közös munkafolyamatként átadni
+				nekik az érettségihez szükséges tudást, sőt többet. Hisszük, hogy a
+				tanár iránti tisztelet egy diákban nem a túlzott szigoron,
+				félreértett fegyelmen, vagy távolságtartáson alapul. A diákok
+				közeli ismerte, a tantárgy teljesen átható tudása és szenvedélyes
+				szeretete, sőt legtöbb esetben aktív kutatói szintű vagy
+				alkalmazott gyakorlása sokkal inkább alkalmas a tisztelet
+				elnyerésére. Korábbi tanítványaink több mint 80%-át felvették abba
+				az intézménybe ahová leadta jelentkezését, vagy elérte a célként
+				kitűzött érettségi pontszámot, ami önmagáért beszél. Ha hatékonyan
+				és élvezettel szeretnéd elsajátítatni az érettségihez szükséges
+				tudást a Yo tudni! a te előkészítőd! Válj egy megalapozottan
+				gondolkodó és közvetlen csoport tagjává és jelentkezz a megadott
+				elérhetőségeken!</div>
+		    <div class="middle price" data-toggle="modal" data-target="#arakInfok">
+           Árak és információk
+        </div>
+        <div class="modal fade" id="arakInfok" role="dialog">
+			    <div class="modal-dialog">
+			      <!-- Modal content-->
+			      <div class="modal-content" class="pricesAndInfosHeaderCont">
+			        <div class="modal-header teacherHeader">
+			              <div class="floatLeft pricesAndInfosHeader">
+			                Árak és információk
+                    </div>
+                    <div class="floatRight">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+			        </div>
+			        <div class="modal-body">
+			          <div class="middle">
+			             <b>Kezdés</b> : Október 9. Hétfő
+			          </div>
+			          <div class="szint">Közép szint:</div>
+			          <div class="szintInfo">
+			             <div class="inf"> Óraszám : 3 óra/hét</div>
+			             <div class="inf"> Időtartam : 20 hét (Április 14-ig) </div>
+			             <div class="inf"> Ár: 54 000 FT  
+				             <a href="" data-toggle="popover1" data-trigger="focus" data-content="Október 9. után 60 000 FT">
+					              <img src="img/teacher/info.png" class="priceInfo">
+					           </a>
+			             </div>
+			          </div>
+			          <div class="szint">Emelt szint:</div>
+			          <div class="szintInfo">
+                   <div class="inf"> Óraszám : 4 óra/hét</div>
+                   <div class="inf"> Időtartam : 22 hét (Április 28-ig) </div>
+                   <div class="inf"> Ár : 79 200 FT 
+		                 <a href="" data-toggle="popover1" data-trigger="focus" data-content="Október 9. után 88 000 FT">
+		                    <img src="img/teacher/info.png" class="priceInfo">
+		                 </a> 
+                   </div>
+			        </div>
+			      </div>
+			    </div>
+		    </div>
+    </div>
+	  
+	  <div class="page yel padY">
+      <destination name="'subjects'"></destination>  
+		  <mosaik-list select="select(index)" subjects="subjectList"></mosaik-list>
+		</div>
+	
+		<color-divider></color-divider>
+		<div class="page blue">
+			<a id="teachers" class="teacherDest"></a>
+			<div class="teachersContainer mid">
+			 <teacher-profile teacher="teachers.tegla"></teacher-profile>
+			 <teacher-profile teacher="teachers.kata"></teacher-profile>
+			 <teacher-profile teacher="teachers.eva"></teacher-profile>
+       <teacher-profile teacher="teachers.daniel"></teacher-profile>
+       <teacher-profile teacher="teachers.marton"></teacher-profile>
+     </div>
+		</div> 
+		
+		<div class="page green">
+		  <gallery num="imgNum"></gallery>
+		</div>
+
+		<div class="page purple">
+		   <destination name="'contact'"></destination>
+		   <div class="mid">
+		      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9li_m1m_PuqraZJTm8Rs2jtMkOmsDhuUEOWyhyS4cvYsAyw/viewform?c=0&w=1" target="_blank">
+		        <div class="application">
+		          Jelentkezés
+		        </div>
+		      </a>
+		   </div>
+		   <div class="mid map">
+          <div class="mapouter"><div class="gmap_canvas"><iframe width="500" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=1117%20Budapest%2C%20P%C3%A1zm%C3%A1ny%20P%C3%A9ter%20s%C3%A9t%C3%A1ny%201%2Fc%2C%20Magyarorsz%C3%A1g&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>embed google map by <a href="http://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{overflow:hidden;height:300px;width:500px;}.gmap_canvas {background:none!important;height:300px;width:500px;}</style></div>
+	     </div>
+	     <div class="mid linkContainer">
+	       <div class="floatLeft">
+		       <a href="https://www.facebook.com/yotudni/" target="_blank">
+		          <img src="img/contact/facebook.png" class="contButton">
+	         </a>
+         </div>
+         <div class="floatLeft">
+           <a href="" data-toggle="popover1" data-trigger="focus" data-content="yotudni@gmail.com">
+	            <img src="img/contact/mail.png" class="contButton">
+	         </a>
+	       </div>
+	       <div class="floatLeft">
+	         <a href="" data-toggle="popover2" data-trigger="focus" data-content="+36 70 392 8832">
+             <img src="img/contact/phone.png" class="contButton">
+           </a>
+	       </div>
+       </div>
+	</div>
+  
+<script>
+			
+</script>
+  
+	<script src="JS/main.js"></script>
+	<script src="JS/templates.js"></script>
+	<script src="JS/lightbox.js"></script>
+
+</body>
+</html>
