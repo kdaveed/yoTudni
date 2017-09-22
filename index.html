@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="CSS/mosaik.css" type="text/css">
 <link rel="stylesheet" href="CSS/page.css" type="text/css">
 <link rel="stylesheet" href="CSS/slideShow.css" type="text/css">
+<link rel="stylesheet" href="CSS/subjects.css" type="text/css">
 <link rel="stylesheet" href="CSS/teacher.css" type="text/css">
 <link rel="stylesheet" href="CSS/text.css" type="text/css">
 
@@ -59,7 +60,7 @@
 	<script type="text/ng-template" id="popup.html">
   <div class="modal fade" id="{{$ctrl.id}}" role="dialog">
     <div class="modal-dialog">
-      <!-- Modal content-->
+      <!-- Modal content-->f
       <div class="modal-content" style=" background-color : {{$ctrl.subject.color}};">
          <div class="modal-header teacherHeader">
               <img src="img/{{$ctrl.subject.imgName}}" 
@@ -83,6 +84,12 @@
                     </li>
                   </ul>
              </div>
+          </div>
+          <div class="subApp">
+           <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9li_m1m_PuqraZJTm8Rs2jtMkOmsDhuUEOWyhyS4cvYsAyw/viewform?c=0&w=1"
+              target="_blank">
+            <div class="subAppText">Jelentkezés</div>
+           </a>
           </div>
         </div>
       </div>
@@ -292,8 +299,7 @@
 				szeretnéd elsajátítatni az érettségihez szükséges tudást a Yo tudni!
 				a te előkészítőd! Válj egy megalapozottan gondolkodó és közvetlen
 				csoport tagjává és jelentkezz a megadott elérhetőségeken!</div>
-			<div class="middle price" data-toggle="modal"
-				data-target="#arakInfok">Árak és információk</div>
+			<div id="prices" class="middle price">Árak és információk</div>
 			<div class="modal fade" id="arakInfok" role="dialog">
 				<div class="modal-dialog">
 					<!-- Modal content-->
@@ -311,26 +317,36 @@
 							</div>
 							<div class="szint">Közép szint:</div>
 							<div class="szintInfo">
-								<div class="inf">Óraszám : 3 óra/hét</div>
-								<div class="inf">Időtartam : 20 hét (Április 14-ig)</div>
+								<div class="inf">Ár - 1000 FT/fő/óra</div>
+								<div class="inf">Időtartam - 3 óra/hét - 24 héten át</div>
+								<div class="inf">Végösszeg - 72 000 FT</div>
+								<!--  
 								<div class="inf">
 									Ár: 54 000 FT <a href="" data-toggle="popover1"
 										data-trigger="focus" data-content="Október 9. után 60 000 FT">
 										<img src="img/teacher/info.png" class="priceInfo">
 									</a>
-								</div>
+								</div> -->
 							</div>
 							<div class="szint">Emelt szint:</div>
 							<div class="szintInfo">
-								<div class="inf">Óraszám : 4 óra/hét</div>
-								<div class="inf">Időtartam : 22 hét (Április 28-ig)</div>
-								<div class="inf">
+								<div class="inf">Ár - 1000 FT/fő/óra</div>
+								<div class="inf">Időtartam - 4 óra/hét - 28 héten át</div>
+								<div class="inf">Végösszeg - 112 000 FT</div>
+
+								<!--  
+                <div class="inf">
 									Ár : 79 200 FT <a href="" data-toggle="popover1"
 										data-trigger="focus" data-content="Október 9. után 88 000 FT">
 										<img src="img/teacher/info.png" class="priceInfo">
 									</a>
-								</div>
+								</div> -->
 							</div>
+							<div class="szint">Fizetés : 3 részletben</div>
+							<div class="szint">Nyitási akció - Teljes képzésre leadott
+								jelentkezés esetén az ár csak 900 FT/fő/óra!</div>
+							<div class="inf">Közép szint : 65 000 FT</div>
+							<div class="inf">Emelt szint : 100 000 FT</div>
 						</div>
 					</div>
 				</div>

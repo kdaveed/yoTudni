@@ -9,6 +9,12 @@ $(document).on('click', 'span', function(event){
 });
 
 
+$("#prices").on('click',  function(){
+  //alert("Prices");
+  $("#arakInfok").modal()
+})
+
+
 var changeModal = function(){
   
   $('html, body').animate({

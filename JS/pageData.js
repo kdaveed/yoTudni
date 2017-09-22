@@ -161,7 +161,9 @@ var subjectList = [
     teacher : "A",
     shown :  true,
     width : 122,
-    teacher : "Kovács Dániel",
+    teacher : [
+      {name: "Kovács Dániel", id : "#daniel"},
+    ],
     groups : [{
       teacher : "Kovács Dániel",
       appointments : [{
